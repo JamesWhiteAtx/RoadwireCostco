@@ -1,0 +1,57 @@
+﻿<div id="heat-body">
+
+    <div class="row checkbox">
+        <div class="col-md-6 col-md-offset-2">
+            <label>
+                <input type="checkbox" ng-model="heater1.checked">
+                {{heater1.disp}}
+            </label>
+
+        </div>
+        <div class="col-md-2 text-right">
+            {{heater1.price | currency}}
+        </div>
+    </div>
+
+    <div class="row checkbox" ng-class="{disabled: !heater1.checked}">
+
+        <div class="col-md-6 col-md-offset-2">
+            <label>
+                <input type="checkbox" ng-model="heater2.checked" ng-disabled="!heater1.checked">
+                {{heater2.disp}}
+            </label>
+        </div>
+        <div class="col-md-2 text-right">
+            {{heater2.price | currency}}
+        </div>
+
+    </div>
+    
+    <div class="row" ng-if="heater2.checked">
+        <div class="col-md-6 col-md-offset-2">
+            {{discount.disp}}
+        </div>
+        <div class="col-md-2 text-right">
+            {{discount.price | currency}}
+        </div>
+
+    </div>
+
+    <div class="row" ng-if="heater1.checked || heater2.checked">
+        <div class="col-md-6 col-md-offset-2">
+            Total
+        </div>
+        <div class="col-md-2 text-right" ">
+            {{total | currency}}
+        </div>
+    </div>
+
+    <div class="row" ng-if="heater1.checked || heater2.checked">
+        <div class="col-md-6 col-md-offset-2">
+            <a href="" ng-click="routeConfirm()"><span></span>Confirm</a>
+        </div>
+    </div>
+
+    
+    
+</div>

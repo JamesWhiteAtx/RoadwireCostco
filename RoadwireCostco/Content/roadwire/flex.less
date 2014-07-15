@@ -1,0 +1,143 @@
+﻿// Roadwire flex.less
+
+// thanks to jayk flexbox.less https://gist.github.com/jayj/4012969
+//http://the-echoplex.net/flexyboxes/
+
+// Flexbox display
+// flex or inline-flex
+.flex-display(@display: flex) {
+    //display: -webkit-box;
+    //display: -moz-box;
+	display: ~"-webkit-@{display}";
+	display: ~"-moz-@{display}";
+	display: ~"-ms-@{display}box"; // IE10 uses -ms-flexbox
+	display: @display;
+}
+
+// The 'flex' shorthand
+// - applies to: flex items
+// <positive-number>, initial, auto, or none
+.flex(@columns: initial) {
+  -webkit-flex: @columns;
+     -moz-flex: @columns;
+      -ms-flex: @columns;
+          flex: @columns;
+}
+ 
+// Flex Flow Direction
+// - applies to: flex containers
+// row | row-reverse | column | column-reverse
+.flex-direction(@direction: row) {
+    // legacy styles
+    //.box-orient(@direction);
+    //.box-direction(@direction);
+  -webkit-flex-direction: @direction;
+     -moz-flex-direction: @direction;
+      -ms-flex-direction: @direction;
+          flex-direction: @direction;
+}
+// legacy styles
+.box-orient(@flex-direction) when (@flex-direction = row), (@flex-direction = row-reverse) {
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+}
+.box-orient(@flex-direction) when (@flex-direction = column), (@flex-direction = column-reverse) {
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+}
+.box-direction(@flex-direction) when (@flex-direction = row-reverse), (@flex-direction = column-reverse) {
+    -webkit-box-direction: reverse;
+    -moz-box-direction: reverse;
+}
+.box-direction(@flex-direction) when (@flex-direction = row), (@flex-direction = column) {
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+}
+   
+// Flex Line Wrapping
+// - applies to: flex containers
+// nowrap | wrap | wrap-reverse
+.flex-wrap(@wrap: nowrap) {
+  -webkit-flex-wrap: @wrap;
+     -moz-flex-wrap: @wrap;
+      -ms-flex-wrap: @wrap;
+          flex-wrap: @wrap;
+}
+
+// Flex Direction and Wrap
+// - applies to: flex containers
+// <flex-direction> || <flex-wrap>
+.flex-flow(@flow) {
+  -webkit-flex-flow: @flow;
+     -moz-flex-flow: @flow;
+      -ms-flex-flow: @flow;
+          flex-flow: @flow;
+}
+
+// Axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | space-between | space-around 
+.justify-content(@justify: flex-start) {
+  -webkit-justify-content: @justify;
+     -moz-justify-content: @justify;
+      -ms-justify-content: @justify;
+          justify-content: @justify;
+}
+
+// Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch 
+.align-items(@align: stretch) {
+  -webkit-align-items: @align;
+     -moz-align-items: @align;
+      -ms-align-items: @align;
+          align-items: @align;
+}
+
+// Cross-axis Alignment
+// - applies to: flex items
+// auto | flex-start | flex-end | center | baseline | stretch 
+.align-self(@align: auto) {
+ -ms-flex-item-align: @align;
+  -webkit-align-self: @align;
+     -moz-align-self: @align;
+      -ms-align-self: @align;
+          align-self: @align;
+}
+
+.display-flex() {
+    .flex-display(flex);
+}
+
+.display-inline-flex() {
+    .flex-display(inline-flex);
+}
+
+//.f-row {.flex-direction(row)} 
+//.f-row-reverse  {.flex-direction(row-reverse)}
+//.f-column {.flex-direction(column)}
+//.f-column-reverse {.flex-direction(column-reverse)}
+
+.flex-col {
+    .display-flex();
+    .flex-direction(column);
+}
+
+.flex-row {
+    .display-flex();
+    .flex-direction(row);
+}
+
+.flex-fix {
+    .flex(0 0 auto);
+}
+
+.flex-fill {
+    .flex(1);
+}
+
+.full-ht() {
+    margin:0;
+    height:100%;
+    min-height:100%;
+}

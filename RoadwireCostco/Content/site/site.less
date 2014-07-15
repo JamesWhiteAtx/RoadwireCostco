@@ -1,0 +1,90 @@
+﻿// body {
+//     padding-top: 50px;
+//     padding-bottom: 20px;
+// }
+///* Set padding to keep content from hitting the edges */
+// .body-content {
+//     padding-left: 15px;
+//     padding-right: 15px;
+// }
+
+// corrects bootstrap input width
+.input-group-btn {
+    width: auto;
+}
+
+@loading-dim: 15px;
+span.loading {
+    margin-left: 5px;
+}
+span.loading:before {
+    content: "";
+    display: block;
+    background: url('/Content/Images/loading.gif') no-repeat;
+    width: @loading-dim;
+    height: @loading-dim;
+    float: left;
+    margin: 0 6px 0 0;
+}
+
+@loading-large-dim: 35px;
+span.loading-large {
+    margin-left: 5px;
+    display: inline-block;
+    min-height: @loading-large-dim;
+}
+span.loading-large:before {
+    content: "";
+    display: block;
+    background: url('/Content/Images/loading-large.gif') no-repeat;
+    width: @loading-large-dim;
+    height: @loading-large-dim;
+    float: left;
+    margin: 0 6px 0 0;
+}
+
+div.loading-large {
+    margin-left: 5px;
+    min-height: @loading-large-dim;
+}
+div.loading-large:before {
+    content: "";
+    display: block;
+    background: url('/Content/Images/loading-large.gif') no-repeat;
+    width: @loading-large-dim;
+    height: @loading-large-dim;
+    float: left;
+    margin: 0 6px 0 0;
+}
+
+// Set width on the form input elements since they're 100% wide by default - mvc template, messes up boostrap button groups
+//input,
+//select,
+//textarea {
+//    max-width: 280px;
+//}
+
+// styles for validation helpers 
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}

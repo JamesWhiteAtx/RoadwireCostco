@@ -1,0 +1,13 @@
+﻿[ 
+    { "ID": 1.0, "Code": "L1R", "LeatherRows": 1.0, "Heaters": null, "PageUrl": "http://www.costco.com/.product.886853.html", "Description": "One Row Leather Kit", "Price": 799.0 }, 
+    { "ID": 2.0, "Code": "L2R", "LeatherRows": 2.0, "Heaters": null, "PageUrl": "http://www.costco.com/.product.886880.html", "Description": "Two Row Leather Kit", "Price": 1299.0 }, 
+    { "ID": 3.0, "Code": "L3R", "LeatherRows": 3.0, "Heaters": null, "PageUrl": "http://www.costco.com/.product.886883.html", "Description": "Three Row Leather Kit", "Price": 1799.0 }, 
+    { "ID": 4.0, "Code": "SH1", "LeatherRows": null, "Heaters": 1.0, "PageUrl": null, "Description": "Seat Heater", "Price": 249.0 }, 
+    { "ID": 5.0, "Code": "SH2", "LeatherRows": null, "Heaters": 2.0, "PageUrl": null, "Description": "Double Seat Heaters", "Price": 449.0 }, 
+    { "ID": 6.0, "Code": "L1RSH1", "LeatherRows": 1.0, "Heaters": 1.0, "PageUrl": "http://www.costco.com/.product.886986.html", "Description": "A One Row Leather Kit with Seat Heater", "Price": 1049.0 }, 
+    { "ID": 7.0, "Code": "L2RSH1", "LeatherRows": 2.0, "Heaters": 1.0, "PageUrl": "http://www.costco.com/.product.887024.html", "Description": "Two Row Leather Kit with Seat Heater", "Price": 1549.0 }, 
+    { "ID": 8.0, "Code": "L3RSH1", "LeatherRows": 3.0, "Heaters": 1.0, "PageUrl": "http://www.costco.com/.product.887050.html", "Description": "Three Row Leather Kit with Seat Heater", "Price": 2049.0 }, 
+    { "ID": 9.0, "Code": "L1RSH2", "LeatherRows": 1.0, "Heaters": 2.0, "PageUrl": "http://www.costco.com/.product.886932.html", "Description": "One Row Leather Kit with Double Seat Heaters", "Price": 1249.0 }, 
+    { "ID": 10.0, "Code": "L2RSH2", "LeatherRows": 2.0, "Heaters": 2.0, "PageUrl": "http://www.costco.com/.product.886954.html", "Description": "Two Row Leather Kit with Double Seat Heaters", "Price": 1749.0 },
+    { "ID": 11.0, "Code": "L3RSH2", "LeatherRows": 3.0, "Heaters": 2.0, "PageUrl": "http://www.costco.com/.product.886965.html", "Description": "Three Row Leather Kit with Double Seat Heaters", "Price": 2249.0 } 
+]

@@ -1,0 +1,33 @@
+﻿@*Home Index*@
+
+@section styles{
+    @Styles.Render("~/Content/style")
+    @Styles.Render("~/Content/costco")
+}
+
+<div id="costco-container" class="costco-container" ng-app="costco" ng-controller="CostcoCtrl" zb-route-styles>
+
+    <div id="cc-head">
+        Roadwire
+        <div id="cc-logo">
+            Costco
+        </div>
+    </div>
+
+    <div ng-view id="costco-view" class="costco-view"></div>
+    <footer class="costco-footer">
+        &copy; @DateTime.Now.Year - Roadwire LLC
+    </footer>
+</div>
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/ui-boots")
+    @Scripts.Render("~/bundles/angstyles")
+    @Scripts.Render("~/bundles/animate")
+    @Scripts.Render("~/bundles/rwutils")
+    @Scripts.Render("~/bundles/costco")
+}

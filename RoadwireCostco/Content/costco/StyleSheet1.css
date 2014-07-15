@@ -1,0 +1,144 @@
+/*@cc-foot-ht: @cc-foot-tot-ht - (@cc-foot-bord * 2) - (@cc-foot-padt + @cc-foot-padb);*/
+body {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#costco-container {
+  /*@media (min-width: @screen-sm-min) {
+        max-width: ((720px + @grid-gutter-width));
+    }
+    @media (min-width: @screen-md-min) {
+        max-width: ((748px + @grid-gutter-width));
+    }
+    @media (min-width: @screen-lg-min) {
+        max-width: ((748px + @grid-gutter-width));
+    }
+
+    &:extend(.container);
+*/
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 2px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#costco-container {
+  border-style: solid;
+  border-color: #808080;
+  border-radius: 4px;
+}
+#costco-view {
+  border-style: solid;
+  border-color: #0026ff;
+}
+#costco-view {
+  /*.clearfix;*/
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 449px;
+  max-height: 449px;
+}
+#costco-view #sel-head {
+  border-style: solid;
+  border-color: #ddd;
+}
+#costco-view #sel-head {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 28px;
+  max-height: 28px;
+  width: auto;
+  /*background: url('/Content/Images/logo.png') no-repeat left center;*/
+  background-size: contain;
+  color: transparent;
+}
+#costco-view #lea-body {
+  border-style: solid;
+  border-color: #ffd800;
+}
+#costco-view #lea-body {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 419px;
+  max-height: 419px;
+  width: auto;
+  /*background: url('/Content/Images/carbkgrnd.jpg') no-repeat left center;*/
+  background-size: contain;
+  color: transparent;
+}
+#costco-view .sel-caption {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 20px;
+  color: #ffffff;
+  font-weight: bold;
+}
+#costco-view .sel-opt-sect {
+  border-style: solid;
+  border-color: #ff00dc;
+}
+#costco-view .sel-opt-sect {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 66px;
+  max-height: 66px;
+  background: rgba(0, 0, 0, 0.5);
+}
+#costco-view .sel-opt-sect .sel-opt {
+  border-style: solid;
+  border-color: #4cff00;
+}
+#costco-view .sel-opt-sect .sel-opt {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 34px;
+  display: inline-block;
+  margin-right: 10px;
+}
+#costco-view .sel-chc-sect {
+  border-style: solid;
+  border-color: #ff00dc;
+}
+#costco-view .sel-chc-sect {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 1px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 215px;
+  max-height: 215px;
+  background: rgba(0, 0, 0, 0.5);
+}
+.costco-footer {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 1px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 13px;
+}
+.costco-footer {
+  border-style: solid;
+  border-color: #ff6a00;
+}

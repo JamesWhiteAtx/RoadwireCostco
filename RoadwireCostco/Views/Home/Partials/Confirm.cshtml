@@ -1,0 +1,130 @@
+﻿<div id="conf-body">
+    <div class="order-info">
+        <h3>Confirm Your Order</h3>
+
+        <div class="msg" ng-hide="hasProd()">
+            <p class="not-done"><span class="symbol"></span>You have not selected a Roadwire product for purchase.
+            </p>
+        </div>
+
+        <div class="order-line" ng-repeat="line in lines">
+            <div class="header">
+                <div class="title">{{line.title}}</div>
+                <div class="modify"><span title="Edit" ng-if="line.edtFcn" ng-click="line.edtFcn()">Edit</span></div>
+                <div class="remove"><span title="Remove" ng-if="line.delFcn" ng-click="line.delFcn($index)">Remove</span></div>
+            </div>
+            <div class="details">
+                
+                <div class="display">
+                    <img ng-if="line.url" ng-src="{{line.url}}" alt="the color">
+                </div>
+                
+                <div class="items">
+                    <div class="descr" ng-repeat-start="item in line.items">
+                        {{item.descr}}
+                    </div>
+                    <div class="total" ng-repeat-end>
+                        <span ng-if="item.total">{{item.total | currency}}</span>
+                    </div>
+                    <div class="descr" ng-if="line.installed">
+                        <a href="" class="prof-inst" ng-click="whyInstall()"><span class="symbol"></span> Professional Installation Included</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-line" ng-show="total">
+            <div class="header">
+                <div class="title">Total</div>
+                <div class="total">
+                    <span ng-if="total">{{total | currency}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="alerts">
+            <div class="alert alert-info alert-dismissible" role="alert" ng-repeat="alert in alerts">
+                <button type="button" title="No Thanks" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4>{{alert.quest}}</h4>
+                <p>{{alert.info}}</p>
+                <p ng-if="alert.addFcn">
+                    <a href="" class="alert-link" title="{{alert.yes}}" ng-click="alert.addFcn()">
+                        <span class="yes"></span> {{alert.yes}}
+                    </a>
+                </p>
+            </div>
+        </div class="alerts">
+    </div>
+
+    <form name="memb" class="member-info">
+        <h3>Enter Costco Member Information</h3>
+        <div class="details">
+
+            <div>
+                <label for="email" ng-class="{required: !memb.email.$valid}">
+                    Member Email
+                </label>
+                <span ng-class="{required: !memb.email.$valid}"> </span>
+                <label class="required" ng-show="memb.email.$error.email"> (Invalid Email)</label>
+                <input type="email" id="email" name="email" placeholder="Costco.com Member Email" ng-model="member.email" required>
+            </div>
+
+            <div>
+                <label for="last" ng-class="{required: !memb.last.$valid}">Ship Last Name </label>
+                <span ng-class="{required: !memb.last.$valid}"> </span>
+                <input type="text" id="last" name="last" placeholder="Ship To Last Name" ng-model="member.lastname" required>
+            </div>
+
+            <div>
+                <label for="postal" ng-class="{required: !memb.postal.$valid}">
+                    Ship To Zip Code
+                </label>
+                <span ng-class="{required: !memb.postal.$valid}"> </span>
+                <label class="required" ng-show="memb.postal.$error.pattern"> (Invalid Zip Code)</label>
+                <input type="text" id="postal" name="postal" placeholder="Ship To Zip Code" ng-model="member.postal"
+                       ng-pattern="/^\d{5}(?:[-\s]\d{4})?$/" required>
+            </div>
+
+            <div>
+                <label for="phone" ng-class="{required: !memb.phone.$valid}">
+                    Phone
+                </label>
+                <span ng-class="{required: !memb.phone.$valid}"> </span>
+                <label class="required" ng-show="memb.phone.$error.pattern"> (Invalid Format, use xxx-xxx-xxxx)</label>
+                <input type="text" id="phone" name="phone" placeholder="Phone" ng-model="member.phone"
+                       ng-pattern="/^[+]?[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$/"
+                       required>
+            </div>
+
+        </div>
+
+        <div class="confirm">
+            <div class="msg">
+                <div ng-hide="confirmable()">
+                    <p class="not-done" ng-hide="hasProd()">
+                        <span class="symbol"></span>
+                        Please select your Roadwire product.
+                    </p>
+                    <p class="not-done" ng-hide="hasMember()">
+                        <span class="symbol"></span>
+                        <span ng-show="hasProd()">You are almost done.</span>
+                        Please fill out your Costco.com membership information so we can process your order.
+                    </p>
+                </div>
+
+                <p class="done" ng-show="confirmable()">
+                    <span></span>
+                    You are now ready to complete your purchase on Costco.com. Thank you.
+                </p>
+            </div>
+            <button type="button" ng-disabled="!confirmable() || !memb.$valid" ng-click="linkToCostCo()">
+                Complete Order on Costco.com
+                <span></span>
+            </button>
+        </div>
+
+    </form>
+
+</div>
+
+<button ng-click="test()">test</button>

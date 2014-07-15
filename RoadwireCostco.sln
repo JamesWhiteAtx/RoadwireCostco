@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoadwireCostco", "RoadwireCostco\RoadwireCostco.csproj", "{4DD37619-1D4C-4D51-8050-1D876F7F5EE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoadwireCostco.Tests", "RoadwireCostco.Tests\RoadwireCostco.Tests.csproj", "{D6B0774A-4596-4ACD-A1C7-4465B85F5FC5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{AFA11618-88EE-42B0-850F-63BFD27ABC9E}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
+		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{152DCE15-B318-4F8B-9E65-5A076987ECA6}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\RoadwireCostco-WAWS-dev.json = PublishScripts\Configurations\RoadwireCostco-WAWS-dev.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DD37619-1D4C-4D51-8050-1D876F7F5EE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DD37619-1D4C-4D51-8050-1D876F7F5EE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DD37619-1D4C-4D51-8050-1D876F7F5EE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DD37619-1D4C-4D51-8050-1D876F7F5EE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6B0774A-4596-4ACD-A1C7-4465B85F5FC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6B0774A-4596-4ACD-A1C7-4465B85F5FC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6B0774A-4596-4ACD-A1C7-4465B85F5FC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6B0774A-4596-4ACD-A1C7-4465B85F5FC5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{152DCE15-B318-4F8B-9E65-5A076987ECA6} = {AFA11618-88EE-42B0-850F-63BFD27ABC9E}
+	EndGlobalSection
+EndGlobal

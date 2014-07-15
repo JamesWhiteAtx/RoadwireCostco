@@ -1,0 +1,56 @@
+﻿<style>
+    #map-canvas {
+        height: 200px;
+    }
+</style>
+<div id="lea-body" ng-class="lightbkg ? 'light-bkg' : 'dark-bkg '">
+
+    <div id="sel-car" class="sel-opt-sect sel-sect-fade">
+        <h4 class="sel-caption">Find Your Vehicle</h4>
+        <div sel-car-select sec-model="make"></div>
+        <div sel-car-select sec-model="year"></div>
+        <div sel-car-select sec-model="model"></div>
+        <div sel-car-select sec-model="body" sec-plural="Bodies" sec-only-opts="true"></div>
+        <span class="glyphicon glyphicon-camera" ng-click="lightbkg = !lightbkg;"></span>
+    </div>
+
+    <div class="loading-large" ng-show="trimShowLoading()"></div>
+    <div id="sel-trim" class="sel-opt-sect  sel-sect-fade" ng-show="trimShowOpts()">
+        <h4 class="sel-caption">Find Your Trim Level</h4>
+        <div sel-car-select sec-model="trim" sec-name="Trim Level" sec-only-opts="true"></div>
+        <div sel-car-select sec-model="car" sec-only-opts="true"></div>
+        <div sel-car-select sec-model="ptrn" sec-name="Configuration" sec-only-opts="true"></div>
+    </div>
+
+    <div class="loading-large" ng-show="intShowLoading()"></div>
+    <div id="sel-int" class="sel-opt-sect sel-sect-fade" ng-show="intShowOpts()">
+        <h4 class="sel-caption">Interior Color of Your Vehicle</h4>
+        <div sel-car-select sec-model="int" sec-name="Interior Color"></div>
+    </div>
+
+    <div class="loading-large" ng-show="kitShowLoading()"></div>
+
+    <div class="sel-opt-sect sel-sect-fade" ng-show="kitShowOpts() && !kitShowLoading() && (!trimShowOpts() || !intShowOpts())"></div>
+
+    <div id="sel-color" class="sel-chc-sect sel-sect-fade" ng-show="kitShowOpts()">
+        <h4 class="sel-caption">Select Your Color</h4>
+        <ul>
+            <li ng-repeat="col in kit.list" title="{{col.name}}">
+
+                <div class="kit-click" ng-click="pickKit($index)">
+                    <div class="box-descr">{{col.leacolorname}}</div>
+                    <img id="{{col.leacolorname}}" ng-src="{{col.displayUrl}}" alt="{{col.leacolorname}}" class="sel-kit">
+                    <div>{{col.rectype}}</div>
+
+                    <div class="price-pick">
+                        <div class="price">${{price() | number:0}}</div>
+                        <button class="select-kit"><span class="symbol"></span> Buy Now</button>
+                    </div>
+                </div>
+
+                <a href="" class="prof-inst" ng-click="whyInstall()"><span class="symbol"></span> Professional Installation Included</a>
+            </li>
+
+        </ul>
+    </div>
+</div>

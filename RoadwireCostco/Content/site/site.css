@@ -1,0 +1,60 @@
+.input-group-btn {
+  width: auto;
+}
+span.loading {
+  margin-left: 5px;
+}
+span.loading:before {
+  content: "";
+  display: block;
+  background: url('/Content/Images/loading.gif') no-repeat;
+  width: 15px;
+  height: 15px;
+  float: left;
+  margin: 0 6px 0 0;
+}
+span.loading-large {
+  margin-left: 5px;
+  display: inline-block;
+  min-height: 35px;
+}
+span.loading-large:before {
+  content: "";
+  display: block;
+  background: url('/Content/Images/loading-large.gif') no-repeat;
+  width: 35px;
+  height: 35px;
+  float: left;
+  margin: 0 6px 0 0;
+}
+div.loading-large {
+  margin-left: 5px;
+  min-height: 35px;
+}
+div.loading-large:before {
+  content: "";
+  display: block;
+  background: url('/Content/Images/loading-large.gif') no-repeat;
+  width: 35px;
+  height: 35px;
+  float: left;
+  margin: 0 6px 0 0;
+}
+.field-validation-error {
+  color: #b94a48;
+}
+.field-validation-valid {
+  display: none;
+}
+input.input-validation-error {
+  border: 1px solid #b94a48;
+}
+input[type="checkbox"].input-validation-error {
+  border: 0 none;
+}
+.validation-summary-errors {
+  color: #b94a48;
+}
+.validation-summary-valid {
+  display: none;
+}

@@ -1,0 +1,1232 @@
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img,
+.why-install .tab-content #why #inst-img img > img,
+.why-install .tab-content #why #inst-img img a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.why-install .tab-content #where #srchform #btnfind[disabled] {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn-group-lg > .btn {
+  padding: 10px 16px;
+  font-size: 15px;
+  line-height: 1.33;
+  border-radius: 0;
+}
+.btn-group-sm > .btn {
+  padding: 5px 10px;
+  font-size: 11px;
+  line-height: 1.5;
+  border-radius: 0;
+}
+.btn-group-xs > .btn {
+  padding: 1px 5px;
+  font-size: 11px;
+  line-height: 1.5;
+  border-radius: 0;
+}
+.container:before,
+.container:after,
+.container-fluid:before,
+.container-fluid:after,
+.row:before,
+.row:after,
+.form-horizontal .form-group:before,
+.form-horizontal .form-group:after,
+.btn-toolbar:before,
+.btn-toolbar:after,
+.btn-group-vertical > .btn-group:before,
+.btn-group-vertical > .btn-group:after,
+.nav:before,
+.nav:after,
+.navbar:before,
+.navbar:after,
+.navbar-header:before,
+.navbar-header:after,
+.navbar-collapse:before,
+.navbar-collapse:after,
+.pager:before,
+.pager:after,
+.panel-body:before,
+.panel-body:after,
+.modal-footer:before,
+.modal-footer:after,
+body #costco-container:before,
+body #costco-container:after,
+body #costco-container #costco-view #conf-body:before,
+body #costco-container #costco-view #conf-body:after {
+  content: " ";
+  display: table;
+}
+.container:after,
+.container-fluid:after,
+.row:after,
+.form-horizontal .form-group:after,
+.btn-toolbar:after,
+.btn-group-vertical > .btn-group:after,
+.nav:after,
+.navbar:after,
+.navbar-header:after,
+.navbar-collapse:after,
+.pager:after,
+.panel-body:after,
+.modal-footer:after,
+body #costco-container:after,
+body #costco-container #costco-view #conf-body:after {
+  clear: both;
+}
+.btn.disabled,
+.btn[disabled],
+button[disabled],
+.why-install .tab-content #where #srchform #btnfind[disabled] {
+  pointer-events: initial !important;
+  cursor: not-allowed !important;
+}
+body {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 700px;
+}
+body #costco-container {
+  border-style: solid;
+  border-color: #808080;
+  border-radius: 4px;
+}
+body #costco-container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 850px;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 2px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 690px;
+}
+@media (min-width: 768px) {
+  body #costco-container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  body #costco-container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  body #costco-container {
+    width: 1170px;
+  }
+}
+body #costco-container > .navbar-header,
+body #costco-container > .navbar-collapse {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+@media (min-width: 768px) {
+  body #costco-container > .navbar-header,
+  body #costco-container > .navbar-collapse {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+body #costco-container #cc-head {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 0px;
+  padding-top: 0;
+  padding-bottom: 5;
+  height: 42px;
+  width: auto;
+  background: url('/Content/Images/logo.png') no-repeat left center;
+  background-size: contain;
+  color: transparent;
+}
+body #costco-container #cc-head:before,
+body #costco-container #cc-head:after {
+  content: " ";
+  display: table;
+}
+body #costco-container #cc-head:after {
+  clear: both;
+}
+body #costco-container #cc-head:before,
+body #costco-container #cc-head:after {
+  content: " ";
+  display: table;
+}
+body #costco-container #cc-head:after {
+  clear: both;
+}
+body #costco-container #cc-head #cc-logo {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 37px;
+  width: 160px;
+  float: right !important;
+  background: url('/Content/Images/cc_logo.gif') no-repeat left center;
+  background-size: contain;
+  color: transparent;
+}
+body #costco-container #costco-view {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 609px;
+}
+body #costco-container #costco-view:before,
+body #costco-container #costco-view:after {
+  content: " ";
+  display: table;
+}
+body #costco-container #costco-view:after {
+  clear: both;
+}
+body #costco-container #costco-view:before,
+body #costco-container #costco-view:after {
+  content: " ";
+  display: table;
+}
+body #costco-container #costco-view:after {
+  clear: both;
+}
+body #costco-container #costco-view .light-bkg {
+  background: url('/Content/Images/carbkgrnd.jpg') no-repeat left center;
+}
+body #costco-container #costco-view .dark-bkg {
+  background: url('/Content/Images/costco-selector.jpg') no-repeat left center;
+  background-size: cover;
+}
+body #costco-container #costco-view #lea-body {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 609px;
+  width: auto;
+}
+body #costco-container #costco-view #lea-body .sel-sect {
+  padding-left: 5px;
+  padding-right: 5px;
+  background: rgba(0, 0, 0, 0.5);
+}
+body #costco-container #costco-view #lea-body .sel-sect .sel-caption {
+  margin-top: 0px;
+  margin-bottom: 3px;
+  border-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 22px;
+  color: #ffffff;
+  font-weight: bold;
+}
+body #costco-container #costco-view #lea-body .sel-opt-sect {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 0px;
+  padding-top: 3px;
+  padding-bottom: 6px;
+  height: 65px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background: rgba(0, 0, 0, 0.5);
+}
+body #costco-container #costco-view #lea-body .sel-opt-sect .sel-caption {
+  margin-top: 0px;
+  margin-bottom: 3px;
+  border-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 22px;
+  color: #ffffff;
+  font-weight: bold;
+}
+body #costco-container #costco-view #lea-body .sel-opt-sect .sel-opt {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 31px;
+  display: inline-block;
+  margin-right: 10px;
+}
+body #costco-container #costco-view #lea-body .sel-opt-sect .sel-opt div {
+  display: inline-block;
+}
+body #costco-container #costco-view #lea-body .sel-opt-sect .sel-opt .sel-slct {
+  display: block;
+  width: 100%;
+  height: 31px;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  display: inline-block;
+  width: auto;
+  font-size: 12px;
+  font-weight: bold;
+  max-height: 31px;
+  padding: 3px 12px;
+}
+body #costco-container #costco-view #lea-body .sel-opt-sect .sel-opt .sel-slct:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+body #costco-container #costco-view #lea-body .sel-opt-sect .sel-opt .sel-slct::-moz-placeholder {
+  color: #999999;
+  opacity: 1;
+}
+body #costco-container #costco-view #lea-body .sel-opt-sect .sel-opt .sel-slct:-ms-input-placeholder {
+  color: #999999;
+}
+body #costco-container #costco-view #lea-body .sel-opt-sect .sel-opt .sel-slct::-webkit-input-placeholder {
+  color: #999999;
+}
+body #costco-container #costco-view #lea-body .sel-opt-sect .sel-opt .sel-slct[disabled],
+body #costco-container #costco-view #lea-body .sel-opt-sect .sel-opt .sel-slct[readonly],
+fieldset[disabled] body #costco-container #costco-view #lea-body .sel-opt-sect .sel-opt .sel-slct {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+  opacity: 1;
+}
+textareabody #costco-container #costco-view #lea-body .sel-opt-sect .sel-opt .sel-slct {
+  height: auto;
+}
+body #costco-container #costco-view #lea-body .sel-opt-sect .sel-opt .sel-slct:focus {
+  box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.075), 0 0 8px rgba(13, 12, 12, 0.97);
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 0px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  height: 414px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background: rgba(0, 0, 0, 0.5);
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect .sel-caption {
+  margin-top: 0px;
+  margin-bottom: 3px;
+  border-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 22px;
+  color: #ffffff;
+  font-weight: bold;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul {
+  padding-left: 0;
+  list-style: none;
+  margin-left: -5px;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 0;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  height: 383px;
+  margin-left: 1px;
+  background: rgba(0, 0, 0, 0.75);
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul > li {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 356px;
+  height: 100%;
+  background: #fff;
+  color: #000;
+  font-weight: bold;
+  margin-right: 1px;
+  padding: 0 10px;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click {
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click .box-descr {
+  text-align: center;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click img.sel-kit {
+  height: 267px;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick:before,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick:after {
+  content: " ";
+  display: table;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick:after {
+  clear: both;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick:before,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick:after {
+  content: " ";
+  display: table;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick:after {
+  clear: both;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .price {
+  color: #cc201a;
+  font-size: 21px;
+  font-style: normal;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  float: left !important;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .price span.symbol {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .price span.symbol:before {
+  content: "\e148";
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit {
+  float: right !important;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  border-radius: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit:focus,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit:active:focus,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit.active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit:hover,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit:focus {
+  color: #333333;
+  text-decoration: none;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit:active,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit.active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit.disabled,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit[disabled],
+fieldset[disabled] body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit:hover,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit:focus,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit:active,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit.active,
+.open .dropdown-togglebody #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit {
+  color: #ffffff;
+  background-color: #3276b1;
+  border-color: #285e8e;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit:active,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit.active,
+.open .dropdown-togglebody #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit {
+  background-image: none;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit.disabled,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit[disabled],
+fieldset[disabled] body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit.disabled:hover,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit[disabled]:hover,
+fieldset[disabled] body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit:hover,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit.disabled:focus,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit[disabled]:focus,
+fieldset[disabled] body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit:focus,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit.disabled:active,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit[disabled]:active,
+fieldset[disabled] body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit:active,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit.disabled.active,
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit[disabled].active,
+fieldset[disabled] body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit.active {
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit .badge {
+  color: #428bca;
+  background-color: #ffffff;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit span.symbol {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body #costco-container #costco-view #lea-body .sel-chc-sect ul li .kit-click div.price-pick .select-kit span.symbol:before {
+  content: "\e013";
+}
+body #costco-container #costco-view #lea-body .sel-sect-fade.ng-hide-add,
+body #costco-container #costco-view #lea-body .sel-sect-fade.ng-hide-remove {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+  display: block!important;
+  opacity: 1;
+}
+body #costco-container #costco-view #lea-body .sel-sect-fade.ng-hide {
+  height: 1px;
+  opacity: 0;
+}
+body #costco-container #costco-view #conf-body {
+  margin-left: -15px;
+  margin-right: -15px;
+  /*ul.conf-sum {
+                    .list-unstyled;
+                    label {
+                        color: red;
+                        min-width: 75px;
+                    }
+                    label:after {
+                        content: ": "
+                    }
+                }*/
+}
+body #costco-container #costco-view #conf-body .msg {
+  padding-top: 10px;
+}
+body #costco-container #costco-view #conf-body .msg .not-done {
+  color: #a94442;
+}
+abody #costco-container #costco-view #conf-body .msg .not-done:hover {
+  color: #843534;
+}
+body #costco-container #costco-view #conf-body .msg .not-done span.symbol {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body #costco-container #costco-view #conf-body .msg .not-done span.symbol:before {
+  content: "\2a";
+}
+body #costco-container #costco-view #conf-body .msg .done {
+  color: #428bca;
+}
+abody #costco-container #costco-view #conf-body .msg .done:hover {
+  color: #3071a9;
+}
+body #costco-container #costco-view #conf-body .msg .done span {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body #costco-container #costco-view #conf-body .msg .done span:before {
+  content: "\e013";
+}
+body #costco-container #costco-view #conf-body .order-info {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-right: 30px;
+}
+@media (min-width: 992px) {
+  body #costco-container #costco-view #conf-body .order-info {
+    float: left;
+    width: 58.33333333%;
+  }
+}
+body #costco-container #costco-view #conf-body .order-info .order-line {
+  border-top: 2px solid #dddddd;
+  padding-top: 10px;
+  margin-bottom: 5px;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .header {
+  margin-bottom: 5px;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .header:before,
+body #costco-container #costco-view #conf-body .order-info .order-line .header:after {
+  content: " ";
+  display: table;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .header:after {
+  clear: both;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .header:before,
+body #costco-container #costco-view #conf-body .order-info .order-line .header:after {
+  content: " ";
+  display: table;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .header:after {
+  clear: both;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .header > div {
+  float: left !important;
+  position: relative;
+  min-height: 1px;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .header .title {
+  width: 66.66666667%;
+  font-weight: bold;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .header .modify {
+  width: 16.66666667%;
+  text-align: right;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .header .modify span {
+  cursor: pointer;
+  color: #428bca;
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+abody #costco-container #costco-view #conf-body .order-info .order-line .header .modify span:hover {
+  color: #3071a9;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .header .modify span:before {
+  content: "\e065";
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .header .remove {
+  width: 16.66666667%;
+  text-align: right;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .header .remove span {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .header .remove span:before {
+  content: "\e014";
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .header .total {
+  width: 33.33333333%;
+  text-align: right;
+  color: #cc201a;
+  font-size: 15px;
+  font-style: normal;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .details:before,
+body #costco-container #costco-view #conf-body .order-info .order-line .details:after {
+  content: " ";
+  display: table;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .details:after {
+  clear: both;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .details:before,
+body #costco-container #costco-view #conf-body .order-info .order-line .details:after {
+  content: " ";
+  display: table;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .details:after {
+  clear: both;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .details > div {
+  float: left !important;
+  position: relative;
+  min-height: 1px;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .details .display {
+  width: 16.66666667%;
+  border-color: #ff00dc;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .details .display img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .details .items {
+  width: 83.33333333%;
+  padding: 0 5px 0 5px;
+  border-top: 1px solid #dddddd;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .details .items > div {
+  float: left !important;
+  position: relative;
+  min-height: 1px;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .details .items .descr {
+  width: 75%;
+}
+body #costco-container #costco-view #conf-body .order-info .order-line .details .items .total {
+  width: 25%;
+  text-align: right;
+}
+body #costco-container #costco-view #conf-body .order-info .alerts {
+  margin-top: 20px;
+}
+body #costco-container #costco-view #conf-body .order-info .alerts span.yes {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body #costco-container #costco-view #conf-body .order-info .alerts span.yes:before {
+  content: "\2b";
+}
+body #costco-container #costco-view #conf-body .member-info {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  body #costco-container #costco-view #conf-body .member-info {
+    float: left;
+    width: 41.66666667%;
+  }
+}
+body #costco-container #costco-view #conf-body .member-info .details {
+  border-top: 1px solid #dddddd;
+  padding-top: 10px;
+}
+body #costco-container #costco-view #conf-body .member-info .details > div {
+  margin-bottom: 15px;
+}
+body #costco-container #costco-view #conf-body .member-info .details > div .required {
+  color: #a94442;
+}
+abody #costco-container #costco-view #conf-body .member-info .details > div .required:hover {
+  color: #843534;
+}
+body #costco-container #costco-view #conf-body .member-info .details > div span.required {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body #costco-container #costco-view #conf-body .member-info .details > div span.required:before {
+  content: "\2a";
+}
+body #costco-container #costco-view #conf-body .member-info .details > div input {
+  display: block;
+  width: 100%;
+  height: 31px;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+body #costco-container #costco-view #conf-body .member-info .details > div input:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+body #costco-container #costco-view #conf-body .member-info .details > div input::-moz-placeholder {
+  color: #999999;
+  opacity: 1;
+}
+body #costco-container #costco-view #conf-body .member-info .details > div input:-ms-input-placeholder {
+  color: #999999;
+}
+body #costco-container #costco-view #conf-body .member-info .details > div input::-webkit-input-placeholder {
+  color: #999999;
+}
+body #costco-container #costco-view #conf-body .member-info .details > div input[disabled],
+body #costco-container #costco-view #conf-body .member-info .details > div input[readonly],
+fieldset[disabled] body #costco-container #costco-view #conf-body .member-info .details > div input {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+  opacity: 1;
+}
+textareabody #costco-container #costco-view #conf-body .member-info .details > div input {
+  height: auto;
+}
+body #costco-container #costco-view #conf-body .member-info .msg {
+  min-height: 75px;
+}
+body #costco-container #costco-view #conf-body .member-info .confirm button {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  border-radius: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+  /*.btn-lg;*/
+  padding: 10px 16px;
+  font-size: 19px;
+  line-height: 1.33;
+  border-radius: 4px;
+  /*.center-block;*/
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+body #costco-container #costco-view #conf-body .member-info .confirm button:focus,
+body #costco-container #costco-view #conf-body .member-info .confirm button:active:focus,
+body #costco-container #costco-view #conf-body .member-info .confirm button.active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+body #costco-container #costco-view #conf-body .member-info .confirm button:hover,
+body #costco-container #costco-view #conf-body .member-info .confirm button:focus {
+  color: #333333;
+  text-decoration: none;
+}
+body #costco-container #costco-view #conf-body .member-info .confirm button:active,
+body #costco-container #costco-view #conf-body .member-info .confirm button.active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+body #costco-container #costco-view #conf-body .member-info .confirm button.disabled,
+body #costco-container #costco-view #conf-body .member-info .confirm button[disabled],
+fieldset[disabled] body #costco-container #costco-view #conf-body .member-info .confirm button {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+body #costco-container #costco-view #conf-body .member-info .confirm button:hover,
+body #costco-container #costco-view #conf-body .member-info .confirm button:focus,
+body #costco-container #costco-view #conf-body .member-info .confirm button:active,
+body #costco-container #costco-view #conf-body .member-info .confirm button.active,
+.open .dropdown-togglebody #costco-container #costco-view #conf-body .member-info .confirm button {
+  color: #ffffff;
+  background-color: #3276b1;
+  border-color: #285e8e;
+}
+body #costco-container #costco-view #conf-body .member-info .confirm button:active,
+body #costco-container #costco-view #conf-body .member-info .confirm button.active,
+.open .dropdown-togglebody #costco-container #costco-view #conf-body .member-info .confirm button {
+  background-image: none;
+}
+body #costco-container #costco-view #conf-body .member-info .confirm button.disabled,
+body #costco-container #costco-view #conf-body .member-info .confirm button[disabled],
+fieldset[disabled] body #costco-container #costco-view #conf-body .member-info .confirm button,
+body #costco-container #costco-view #conf-body .member-info .confirm button.disabled:hover,
+body #costco-container #costco-view #conf-body .member-info .confirm button[disabled]:hover,
+fieldset[disabled] body #costco-container #costco-view #conf-body .member-info .confirm button:hover,
+body #costco-container #costco-view #conf-body .member-info .confirm button.disabled:focus,
+body #costco-container #costco-view #conf-body .member-info .confirm button[disabled]:focus,
+fieldset[disabled] body #costco-container #costco-view #conf-body .member-info .confirm button:focus,
+body #costco-container #costco-view #conf-body .member-info .confirm button.disabled:active,
+body #costco-container #costco-view #conf-body .member-info .confirm button[disabled]:active,
+fieldset[disabled] body #costco-container #costco-view #conf-body .member-info .confirm button:active,
+body #costco-container #costco-view #conf-body .member-info .confirm button.disabled.active,
+body #costco-container #costco-view #conf-body .member-info .confirm button[disabled].active,
+fieldset[disabled] body #costco-container #costco-view #conf-body .member-info .confirm button.active {
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+body #costco-container #costco-view #conf-body .member-info .confirm button .badge {
+  color: #428bca;
+  background-color: #ffffff;
+}
+body #costco-container #costco-view #conf-body .member-info .confirm button span {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body #costco-container #costco-view #conf-body .member-info .confirm button span:before {
+  content: "\e092";
+}
+body #costco-container #costco-view #heat-body .checkbox.disabled label {
+  cursor: not-allowed;
+}
+body #costco-container #costco-view #map-body {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 609px;
+}
+body #costco-container #costco-view #map-body #inst-lookup {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 75px;
+}
+body #costco-container #costco-view #map-body #inst-lookup:before,
+body #costco-container #costco-view #map-body #inst-lookup:after {
+  content: " ";
+  display: table;
+}
+body #costco-container #costco-view #map-body #inst-lookup:after {
+  clear: both;
+}
+body #costco-container #costco-view #map-body #inst-lookup:before,
+body #costco-container #costco-view #map-body #inst-lookup:after {
+  content: " ";
+  display: table;
+}
+body #costco-container #costco-view #map-body #inst-lookup:after {
+  clear: both;
+}
+body #costco-container #costco-view #map-body #map-canvas {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 534px;
+  overflow: hidden;
+  -webkit-transform: translateZ(0px);
+}
+body #costco-container .costco-footer {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 25px;
+}
+.prof-inst {
+  font-weight: bolder;
+}
+.prof-inst span.symbol {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.prof-inst span.symbol:before {
+  content: "\e086";
+}
+.why-install .nav-tabs {
+  font-weight: bold;
+}
+.why-install .modal-body {
+  min-height: 500px;
+  max-height: 600px;
+}
+.why-install .tab-content .tab-pane {
+  padding-top: 10px;
+}
+.why-install .tab-content #why #inst-img {
+  float: left !important;
+  margin-right: 10px;
+}
+.why-install .tab-content #why #inst-img img {
+  display: block;
+  padding: 4px;
+  margin-bottom: 17px;
+  line-height: 1.42857143;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 10px;
+}
+.why-install .tab-content #why #inst-img img > img,
+.why-install .tab-content #why #inst-img img a > img {
+  margin-left: auto;
+  margin-right: auto;
+}
+a.why-install .tab-content #why #inst-img img:hover,
+a.why-install .tab-content #why #inst-img img:focus,
+a.why-install .tab-content #why #inst-img img.active {
+  border-color: #428bca;
+}
+.why-install .tab-content #why #inst-img img .caption {
+  padding: 9px;
+  color: #333333;
+}
+.why-install .tab-content #why p {
+  font-size: 15px;
+}
+.why-install .tab-content #where #srchform {
+  margin-top: 5px;
+  padding: 3px;
+}
+.why-install .tab-content #where #srchform label[for=locaddr] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.why-install .tab-content #where #srchform input {
+  display: block;
+  width: 100%;
+  height: 31px;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  display: inline-block;
+}
+.why-install .tab-content #where #srchform input:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.why-install .tab-content #where #srchform input::-moz-placeholder {
+  color: #999999;
+  opacity: 1;
+}
+.why-install .tab-content #where #srchform input:-ms-input-placeholder {
+  color: #999999;
+}
+.why-install .tab-content #where #srchform input::-webkit-input-placeholder {
+  color: #999999;
+}
+.why-install .tab-content #where #srchform input[disabled],
+.why-install .tab-content #where #srchform input[readonly],
+fieldset[disabled] .why-install .tab-content #where #srchform input {
+  cursor: not-allowed;
+  background-color: #eeeeee;
+  opacity: 1;
+}
+textarea.why-install .tab-content #where #srchform input {
+  height: auto;
+}
+.why-install .tab-content #where #srchform #locaddr {
+  width: 50%;
+  margin-right: -4px;
+}
+.why-install .tab-content #where #srchform button {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  border-radius: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: baseline;
+}
+.why-install .tab-content #where #srchform button:focus,
+.why-install .tab-content #where #srchform button:active:focus,
+.why-install .tab-content #where #srchform button.active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.why-install .tab-content #where #srchform button:hover,
+.why-install .tab-content #where #srchform button:focus {
+  color: #333333;
+  text-decoration: none;
+}
+.why-install .tab-content #where #srchform button:active,
+.why-install .tab-content #where #srchform button.active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.why-install .tab-content #where #srchform button.disabled,
+.why-install .tab-content #where #srchform button[disabled],
+fieldset[disabled] .why-install .tab-content #where #srchform button {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.why-install .tab-content #where #srchform #btnfind {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #357ebd;
+  margin-right: 10px;
+}
+.why-install .tab-content #where #srchform #btnfind:hover,
+.why-install .tab-content #where #srchform #btnfind:focus,
+.why-install .tab-content #where #srchform #btnfind:active,
+.why-install .tab-content #where #srchform #btnfind.active,
+.open .dropdown-toggle.why-install .tab-content #where #srchform #btnfind {
+  color: #ffffff;
+  background-color: #3276b1;
+  border-color: #285e8e;
+}
+.why-install .tab-content #where #srchform #btnfind:active,
+.why-install .tab-content #where #srchform #btnfind.active,
+.open .dropdown-toggle.why-install .tab-content #where #srchform #btnfind {
+  background-image: none;
+}
+.why-install .tab-content #where #srchform #btnfind.disabled,
+.why-install .tab-content #where #srchform #btnfind[disabled],
+fieldset[disabled] .why-install .tab-content #where #srchform #btnfind,
+.why-install .tab-content #where #srchform #btnfind.disabled:hover,
+.why-install .tab-content #where #srchform #btnfind[disabled]:hover,
+fieldset[disabled] .why-install .tab-content #where #srchform #btnfind:hover,
+.why-install .tab-content #where #srchform #btnfind.disabled:focus,
+.why-install .tab-content #where #srchform #btnfind[disabled]:focus,
+fieldset[disabled] .why-install .tab-content #where #srchform #btnfind:focus,
+.why-install .tab-content #where #srchform #btnfind.disabled:active,
+.why-install .tab-content #where #srchform #btnfind[disabled]:active,
+fieldset[disabled] .why-install .tab-content #where #srchform #btnfind:active,
+.why-install .tab-content #where #srchform #btnfind.disabled.active,
+.why-install .tab-content #where #srchform #btnfind[disabled].active,
+fieldset[disabled] .why-install .tab-content #where #srchform #btnfind.active {
+  background-color: #428bca;
+  border-color: #357ebd;
+}
+.why-install .tab-content #where #srchform #btnfind .badge {
+  color: #428bca;
+  background-color: #ffffff;
+}
+.why-install .tab-content #where #srchform #within {
+  width: 65px;
+}
+.why-install .tab-content #where .locations {
+  max-height: 300px;
+  overflow-y: auto;
+}

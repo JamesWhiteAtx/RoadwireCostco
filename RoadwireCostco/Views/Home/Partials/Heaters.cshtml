@@ -1,6 +1,42 @@
 ﻿<div id="heat-body">
 
-    <div class="row checkbox">
+    <div class="banner"></div>
+    <div class="info">
+        <p>
+            Climate Controlled Seating refers to car seats with perforations and air conditioners in the seats. CCS offers true forced-air cooling and heating combined with Roadwire's leather interior. Normally installed on both front seats, this climate controlled system brings comfort and luxury usually reserved for more expensive models.
+        </p>
+        <p>
+            Using Amerigon's Thermal Electric Device (TED) and specially designed blowers, cooled or heated air is forced through Roadwire's special foam and perforated leather, providing true air conditioned or heated seating. The same technology is utilized on most OEM cooled and heated seat packages.
+        </p>
+
+        <div class="points">
+            <div class="point">
+                <ul>
+                    <li>Carbon fiber construction</li>
+                    <li>Balanced heat distribution</li>
+                    <li>Two temperature settings</li>
+                    <li>Water resistant</li>
+                </ul>
+            </div>
+            <div class="point">
+                <ul>
+                    <li>Safety minded engineering</li>
+                    <li>Installed under existing upholstery</li>
+                    <li>Warranty, shipping, and installation included</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="price">{{price | currency}}</div>
+    </div>
+
+    <div class="ctrl">
+        <button class="add-htr" ng-click="addHtrs()"><span class="symbol"></span> Yes, Add Seat Heaters</button>
+        <button class="no-htr" ng-click="noHtrs()"><span class="symbol"></span> No Thanks</button>
+    </div>
+
+
+    @*<div class="row checkbox">
         <div class="col-md-6 col-md-offset-2">
             <label>
                 <input type="checkbox" ng-model="heater1.checked">
@@ -12,7 +48,6 @@
             {{heater1.price | currency}}
         </div>
     </div>
-
     <div class="row checkbox" ng-class="{disabled: !heater1.checked}">
 
         <div class="col-md-6 col-md-offset-2">
@@ -26,7 +61,6 @@
         </div>
 
     </div>
-    
     <div class="row" ng-if="heater2.checked">
         <div class="col-md-6 col-md-offset-2">
             {{discount.disp}}
@@ -36,7 +70,6 @@
         </div>
 
     </div>
-
     <div class="row" ng-if="heater1.checked || heater2.checked">
         <div class="col-md-6 col-md-offset-2">
             Total
@@ -45,13 +78,11 @@
             {{total | currency}}
         </div>
     </div>
-
     <div class="row" ng-if="heater1.checked || heater2.checked">
         <div class="col-md-6 col-md-offset-2">
             <a href="" ng-click="routeConfirm()"><span></span>Confirm</a>
         </div>
-    </div>
-
-    
+    </div>*@
+   
     
 </div>

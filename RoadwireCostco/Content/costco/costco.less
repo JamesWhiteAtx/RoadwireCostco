@@ -28,6 +28,19 @@
     height: @css-ht;
 }
 
+.padlr(@pad: 0px) {
+    padding-left: @pad;
+    padding-right: @pad; 
+}
+
+.rwprice(@size) {
+    color: #cc201a;
+    font-size: @size;
+    font-style: normal;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+}
+
 @cc-tot-ht: 700px;
 @cc-tot-wi: 850px;
 @cc-head-tot-ht: floor(@cc-tot-ht * 0.06);
@@ -119,7 +132,6 @@ body {
                 background: url('/Content/Images/costco-selector.jpg') no-repeat left center;
                 background-size: cover;
             }
-
 
             #lea-body when (@cc-lea-body-bord > 0) {
                 border-style: solid;
@@ -264,14 +276,7 @@ body {
                                     .clearfix();
 
                                     .price {
-                                        color: #cc201a;
-                                        font-size: @font-size-h3;
-                                        font-style: normal;
-                                        font-family: 'Georgia', serif;
-                                        font-weight: bold;
-                                        //display: block;
-                                        //margin-bottom: 10px;
-                                        //margin-left: 6px;
+                                        .rwprice(@font-size-h3);
                                         .pull-left();
                                         span.symbol {
                                             .glyphicon; 
@@ -380,11 +385,7 @@ body {
                                 width: percentage((4 / @grid-columns));
                                 .text-right;
 
-                                color: #cc201a;
-                                font-size: @font-size-h4;
-                                font-style: normal;
-                                font-family: 'Georgia', serif;
-                                font-weight: bold;
+                                .rwprice(@font-size-h4);
                             }
                         }
                         .details {
@@ -504,10 +505,79 @@ body {
                 }*/
             }
 
+            //leather selector Body
+            @cc-htr-body-tot-ht: @cc-view-cnt-ht;
+            @cc-htr-body-bord: @wire-frame-bord;
+
+            #heat-body when (@cc-htr-body-bord > 0) {
+                border-style: solid;
+                border-color: #ffd800;
+            }
             #heat-body {
+
+                .heighttot(@cc-htr-body-tot-ht, 0, 0, @cc-htr-body-bord);
+                @cc-htr-body-cnt-ht: @content-ht;
+                width: auto;
+                
+                @cc-htr-bnr-tot-ht: round(@cc-htr-body-cnt-ht / 2); 
+
+                .banner {
+                    .heighttot(@cc-htr-bnr-tot-ht, 0, 0, @cc-htr-body-bord);
+                    border-style: solid;
+                    border-color: red;
+                    background: url('/Content/Images/heater.png') no-repeat left center;
+                    background-size: cover;
+                }
+                
+                @cc-htr-info-tot-ht: floor(@cc-htr-bnr-tot-ht * .80); 
+                @cc-htr-ctrl-tot-ht: floor(@cc-htr-bnr-tot-ht * .20); 
+                @cc-htr-sec-pad: 10px;
+                @cc-htr-pad-l: 40px;
+                
+
+                .info {
+                    .heighttot(@cc-htr-info-tot-ht, 0, 0, @cc-htr-body-bord, @cc-htr-sec-pad, @cc-htr-sec-pad);
+
+                    .points {
+
+                        .clearfix();
+                        .point {
+                            width: 40%;
+                            .pull-left();
+                            ul {
+                                font-size: @font-size-h5;
+                            }
+                        }
+                    }
+                    .price {
+                        margin-top: 10px;
+                        padding-left: @cc-htr-pad-l;
+                        .rwprice(@font-size-h3);
+                    }
+                }              
+                .ctrl {
+                    .heighttot(@cc-htr-ctrl-tot-ht, 0, 0, @cc-htr-body-bord);
+                    padding-left: @cc-htr-pad-l;
+                    .add-htr {
+                        .btn; 
+                        .btn-lg;
+                        .btn-primary;
+                        span.symbol {
+                            .glyphicon; 
+                            .glyphicon-ok;
+                        }
+                    }
+                    .no-htr {
+                        .btn; 
+                        .btn-lg;
+                        .btn-default;
+                        margin-left: 75px;
+                    }
+                }
+
                 .checkbox.disabled label {
-                cursor: not-allowed;
-}
+                    cursor: not-allowed;
+                }
             }
 
             @cc-map-body-bord: @wire-frame-bord;

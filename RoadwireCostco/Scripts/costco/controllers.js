@@ -131,16 +131,32 @@ costco
 }])
 
 .controller('HtrCtrl', ['$scope', 'Data', function ($scope, Data) {
+    
+    var heaters = 2;
+    var rows;
+    rows = Data.getRows();
+rows = 2;
+    $scope.rows = rows;
 
+    $scope.price = Data.prodSrvc.getHtrDiff(rows, heaters);
+    
+    $scope.addHtrs = function () {
+        Data.heaters = heaters;
+        $scope.routeConfirm();
+    };
+    $scope.noHtrs = function () {
+        Data.heaters = 0;
+        $scope.routeConfirm();
+    };
+
+
+    /*
     var dispPrc = function (disp, price) {
         return { checked: false, disp: disp, price: price };
     }
-
     $scope.heater1 = dispPrc(Data.prodSrvc.htrDisp(1), Data.prodSrvc.htrPrice(1));
     $scope.heater2 = dispPrc(Data.prodSrvc.htrDisp(2), Data.prodSrvc.htrPrice(1));
     $scope.discount = dispPrc(Data.prodSrvc.htrDiscDisp(2), Data.prodSrvc.htrDisc(2) * -1);
-    
-
     var calcHeaters = function () {
         if ($scope.heater1.checked) {
             if ($scope.heater2.checked) {
@@ -156,7 +172,6 @@ costco
         $scope.total = Data.prodSrvc.htrPrice(Data.heaters);
         $scope.heaters = Data.heaters;
     };
-
     $scope.$watch('heater1.checked', function (newVal, oldVal) {
         if (newVal === oldVal) { return; };
         calcHeaters();
@@ -165,16 +180,14 @@ costco
         if (newVal === oldVal) { return; };
         calcHeaters();
     });
-
     $scope.heaters = Data.heaters;
-
     if (Data.heaters > 0) {
         $scope.heater1.checked = true;
         if (Data.heaters > 1) {
             $scope.heater2.checked = true;
         };
     };
-
+*/
 }])
 
 .controller('InstCtrl', ['$scope', 'Data', 'Installers', function ($scope, Data, Installers) {

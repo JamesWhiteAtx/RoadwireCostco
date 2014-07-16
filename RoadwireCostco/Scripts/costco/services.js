@@ -249,6 +249,15 @@ angular.module('costco.services', []) // 'ngResource'
             data.selector = selector;
         };
 
+        data.getRows = function () {
+            if (data.selector && data.selector.ptrn && data.selector.ptrn.obj) {
+                return data.selector.ptrn.obj.rowsid || 0;
+            } else {
+                return 0;
+            }
+        };
+        
+
         if (!data.heaters) {
             data.heaters = 0;
         };
@@ -418,6 +427,25 @@ angular.module('costco.services', []) // 'ngResource'
 
 .factory('ProductService', [function () {
     var prodList;
+
+    var getProd = function (rows, htrs) {
+        var result;
+        angular.forEach(prodList, function (prod) {
+            if ((prod.LeatherRows == rows) && (prod.Heaters == htrs)) {
+                result = prod;
+                return false;
+            };
+        });
+        return result;
+    };
+
+    var getHtrDiff = function (rows, htrs) {
+        var justLea = getProd(rows);
+        var leaHtr = getProd(rows, htrs);
+        var diff = leaHtr.Price - justLea.Price;
+        return diff;
+    };
+
     var leaDisp = function (rowid) {
         var base = 'Row Leather Seat Cover';
         if (rowid == 1) {
@@ -479,6 +507,8 @@ angular.module('costco.services', []) // 'ngResource'
     };
 
     var prod = {
+        getProd: getProd,
+        getHtrDiff: getHtrDiff,
         leaDisp: leaDisp,
         leaPrice: leaPrice,
         htrDisp: htrDisp,

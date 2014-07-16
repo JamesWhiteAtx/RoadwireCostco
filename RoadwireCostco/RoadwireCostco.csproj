@@ -162,6 +162,7 @@
     <Content Include="Content\Images\carbkgrnd.jpg" />
     <Content Include="Content\Images\cc_logo.gif" />
     <Content Include="Content\Images\costco-selector.jpg" />
+    <Content Include="Content\Images\heater.png" />
     <Content Include="Content\Images\img_not_avail.png" />
     <Content Include="Content\Images\leather_seats.png" />
     <Content Include="Content\Images\loading-large.gif" />

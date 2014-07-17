@@ -162,6 +162,8 @@
     <Content Include="Content\costco\StyleSheet1.css" />
     <Content Include="Content\costco\test.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Images\camryLeather-11-1.png" />
+    <Content Include="Content\Images\camryLeather-11-2.png" />
     <Content Include="Content\Images\carbkgrnd.jpg" />
     <Content Include="Content\Images\cc_logo.gif" />
     <Content Include="Content\Images\Colors\001.jpg" />
@@ -226,7 +228,10 @@
     <Content Include="Content\Images\loading-large.gif" />
     <Content Include="Content\Images\loading.gif" />
     <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\prius-leather-1.jpg" />
+    <Content Include="Content\Images\prius-leather-2.jpg" />
     <Content Include="Content\Images\testimonials.png" />
+    <Content Include="Content\Images\venza-Leather-3.png" />
     <Content Include="Content\roadwire\Flex.css" />
     <Content Include="Content\roadwire\map.css" />
     <Content Include="Content\roadwire\map.min.css" />

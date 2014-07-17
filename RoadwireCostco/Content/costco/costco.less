@@ -125,11 +125,31 @@ body {
             @cc-lea-body-tot-ht: @cc-view-cnt-ht;
             @cc-lea-body-bord: @wire-frame-bord;
 
-            .light-bkg {
+            .car-bkg {
                 background: url('/Content/Images/carbkgrnd.jpg') no-repeat left center;
             }
-            .dark-bkg {
+            .bkg1 {
                 background: url('/Content/Images/costco-selector.jpg') no-repeat left center;
+                background-size: cover;
+            }
+            .pref-bkg {
+                background: url('/Content/Images/camryLeather-11-1.png') no-repeat left center;
+                background-size: cover;
+            }
+            .bkg3 {
+                background: url('/Content/Images/camryLeather-11-2.png') no-repeat left center;
+                background-size: cover;
+            }
+            .bkg4 {
+                background: url('/Content/Images/prius-leather-1.jpg') no-repeat left center;
+                background-size: cover;
+            }
+            .bkg5 {
+                background: url('/Content/Images/prius-leather-2.jpg') no-repeat left center;
+                background-size: cover;
+            }
+            .bkg6 {
+                background: url('/Content/Images/venza-Leather-3.png') no-repeat left center;
                 background-size: cover;
             }
 
@@ -153,11 +173,13 @@ body {
                 {
                     padding-left: 5px;
                     padding-right: 5px;
-                    background: rgba(0,0,0,0.5);
+                    
+                    background: rgba(0,0,0,0.75);
+
                     .sel-caption {
                         .heighttot(@cc-sel-sect-cap-tot-ht, 0px, @cc-sel-sect-cap-marg-ht);
                         @cc-sel-opt-sect-cap-ht: @content-ht;
-                        color: #ffffff;
+                        color: #8fadde;//; #466598;  #ffffff;
                         font-weight: bold;
                     }
                     //span {color: #ffffff;font-weight: bold;}
@@ -202,6 +224,8 @@ body {
                             font-weight: bold;
                             max-height: @cc-sel-opt-cnt-ht;
                             padding: 3px 12px;
+
+                            color: #466598;
                         }
                         .sel-slct:focus {
                             box-shadow: inset 0 5px 5px rgba(0,0,0,.075), 0 0 8px rgba(13, 12, 12, 0.97);

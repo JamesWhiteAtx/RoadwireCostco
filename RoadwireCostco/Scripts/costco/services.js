@@ -224,19 +224,17 @@ angular.module('costco.services', []) // 'ngResource'
     };
 }])
 
-.factory('WidgetData', ['SelectorList', 'ProductService', 'ProdList', function (SelectorList, ProductService, ProdList) {
+.factory('WidgetData', ['SelectorList', 'ProductService', function (SelectorList, ProductService) {
     var data;
-    var prodList;
-    var prodSrvc;
 
-    var makeData = function () {
+    return function () {
         if (!data) {
             data = {};
         };
         if (!data.rootLvl) {
             data.rootLvl = SelectorList();
         };
-        
+
         data.walkLevels = function (fcn) {
             var lvl = data.rootLvl;
             while (lvl) {
@@ -263,10 +261,10 @@ angular.module('costco.services', []) // 'ngResource'
 
         if (!data.member) {
             var member = {
-                email:'',
-                lastname:'',
-                postal:'',
-                phone:''
+                email: '',
+                lastname: '',
+                postal: '',
+                phone: ''
             };
 
             member.complete = function () {
@@ -274,6 +272,10 @@ angular.module('costco.services', []) // 'ngResource'
             };
 
             data.member = member;
+        };
+
+        if (!data.prodSrvc) {
+            data.prodSrvc = ProductService();
         };
 
         if (!data.order) {
@@ -311,8 +313,8 @@ angular.module('costco.services', []) // 'ngResource'
                 lea.color = data.selector.kit.obj ? data.selector.kit.obj.leacolorname : null;
                 lea.dispUrl = data.selector.kit.obj ? data.selector.kit.obj.colorUrl : null;
                 lea.rows = data.selector.ptrn.obj ? parseInt(data.selector.ptrn.obj.rowsid) : 0;
-                lea.rowsDisp = prodSrvc.leaDisp(lea.rows);
-                lea.price = prodSrvc.leaPrice(lea.rows);
+                lea.rowsDisp = data.prodSrvc.leaDisp(lea.rows);
+                lea.price = data.prodSrvc.leaPrice(lea.rows);
 
                 order.car = car;
                 order.lea = lea;
@@ -345,13 +347,13 @@ angular.module('costco.services', []) // 'ngResource'
                     return { disp: disp, price: price };
                 };
 
-                htrs.price = prodSrvc.getHtrDiff(order.getRows(), htrs.qty);
+                htrs.price = data.prodSrvc.getHtrDiff(order.getRows(), htrs.qty);
 
                 if (htrs.qty > 0) {
-                    htrs.drv = dispPrc(prodSrvc.htrDisp(1), prodSrvc.htrPrice(1));
-                    htrs.disc = dispPrc(prodSrvc.htrDiscDisp(2), prodSrvc.htrDisc(htrs.qty, htrs.price));
+                    htrs.drv = dispPrc(data.prodSrvc.htrDisp(1), data.prodSrvc.htrPrice(1));
+                    htrs.disc = dispPrc(data.prodSrvc.htrDiscDisp(2), data.prodSrvc.htrDisc(htrs.qty, htrs.price));
                     if (htrs.qty == 2) {
-                        htrs.psg = dispPrc(prodSrvc.htrDisp(2), prodSrvc.htrPrice(1));
+                        htrs.psg = dispPrc(data.prodSrvc.htrDisp(2), data.prodSrvc.htrPrice(1));
                     };
                 };
 
@@ -371,15 +373,15 @@ angular.module('costco.services', []) // 'ngResource'
             };
 
             order.prodDescr = function () {
-                return prodSrvc.getDescr(order.getRows(), order.getHtrs());
+                return data.prodSrvc.getDescr(order.getRows(), order.getHtrs());
             };
 
             order.prodUrl = function () {
-                return prodSrvc.getUrl(order.getRows(), order.getHtrs());
+                return data.prodSrvc.getUrl(order.getRows(), order.getHtrs());
             };
 
             order.getTotal = function () {
-                return prodSrvc.getPrice(order.getRows(), order.getHtrs());
+                return data.prodSrvc.getPrice(order.getRows(), order.getHtrs());
             };
 
             order.hasProd = function () {
@@ -395,23 +397,22 @@ angular.module('costco.services', []) // 'ngResource'
 
         return data;
     };
+}])
 
+.factory('DataDeferred', ['WidgetData', 'ProductService', 'ProdList', function (WidgetData, ProductService, ProdList) {
     return function () {
-        data = makeData();
+        var data = WidgetData();
 
-        if (data.prodSrvc) {
+        if (data.prodSrvc.prodList) {
             return data;
         } else {
             return ProdList.list().$promise
                 .then(function (prods) {
-                    prodList = prods;
-                    prodSrvc = ProductService(prodList);
-                    data.prodSrvc = prodSrvc;
+                    data.prodSrvc = ProductService(prods);
                     return data;
                 });
         }
     };
-
 }])
 
 .factory('ProdList', ['$resource', function ($resource) {
@@ -427,13 +428,16 @@ angular.module('costco.services', []) // 'ngResource'
 }])
 
 .factory('ProductService', [function () {
-    var prodList;
-
     var getProd = function (rows, htrs) {
+
+        if (!angular.isArray(prod.prodList)) {
+            return null;
+        };
+
         rows = rows || 0;
         htrs = htrs || 0;
         var result;
-        angular.forEach(prodList, function (prod) {
+        angular.forEach(prod.prodList, function (prod) {
             var prows = prod.LeatherRows || 0;
             var phtrs = prod.Heaters || 0;
             if ((prows == rows) && (phtrs == htrs)) {
@@ -521,7 +525,7 @@ angular.module('costco.services', []) // 'ngResource'
     };
 
     return function (list) {
-        prodList = list;
+        prod.prodList = list;
         return prod;
     };
 }])

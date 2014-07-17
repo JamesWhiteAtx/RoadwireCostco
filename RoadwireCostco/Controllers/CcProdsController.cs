@@ -29,9 +29,10 @@ namespace RoadwireCostco.Controllers
         }
 
         // POST api/CcProds
-        public void Post(CcProductModel prod)
+        public HttpResponseMessage Post(CcProductModel prod)
         {
             _productService.Update(prod);
+            return Request.CreateResponse(HttpStatusCode.OK, prod);
         }
 
         // PUT api/CcProds/5

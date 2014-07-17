@@ -96,7 +96,7 @@ costco
         };
     };
 
-    $scope.lightbkg = true;
+    $scope.bkgclass = 'pref-bkg';
 
     function isUndefinedOrNull(val) {
         return (angular.isUndefined(val) || val == null);
@@ -132,10 +132,8 @@ costco
 }])
 
 .controller('HtrCtrl', ['$scope', 'Data', function ($scope, Data) {
-    
+    var rows = Data.order.getRows();
     var heaters = 2;
-    var rows;
-    rows = Data.order.getRows();
     $scope.rows = rows;
 
     $scope.price = Data.prodSrvc.getHtrDiff(rows, heaters);
@@ -200,10 +198,13 @@ costco
     });
 }])
 
-.controller('ConfirmCtrl', ['$scope', 'Data', function ($scope, Data) {
+.controller('ConfirmCtrl', ['$http', '$scope', 'Data', function ($http, $scope, Data) {
     $scope.lines = [];
     var data = Data;
-    
+    var carLine;
+    var leaLine;
+    var htrLine;
+
     var addLine = function (title, installed, url, edtFcn, delFcn) {
         var line = {
             title: title,
@@ -223,29 +224,29 @@ costco
         return line;
     };
 
-    //var calcTotal = function () {
-    //    $scope.total = 0;
-    //    angular.forEach($scope.lines, function (line) {
-    //        angular.forEach(line.items, function (item) {
-    //            if (angular.isNumber(item.total)) {
-    //                $scope.total += item.total;
-    //            };
-    //        });
-    //    });
-    //};
-
-    var delLine = function (idx) {
-        $scope.lines.splice(idx, 1);
-        //calcTotal();
+    var delLine = function (delLn) {
+        if (!delLn) {
+            return;
+        };
+        angular.forEach($scope.lines, function (line, idx) {
+            if (line == delLn) {
+                $scope.lines.splice(idx, 1);
+                return false;
+            };
+        });
     };
 
+    var delHtr = function (idx) {
+        Data.order.clearHtrs();
+        delLine(htrLine);
+        htrLine = null;
+    };
     var delLea = function (idx) {
         Data.order.clearLea();
-        delLine(idx);
-    };
-    var delHea = function (idx) {
-        Data.order.clearHtrs();
-        delLine(idx);
+        delLine(leaLine);
+        leaLine = null;
+
+        delHtr(htrLine);
     };
 
     $scope.hasLea = function () {
@@ -303,11 +304,11 @@ costco
         descr = objProp(descr, Data.order.car.year);
         descr = objProp(descr, Data.order.car.model);
         descr = objProp(descr, Data.order.car.car);
-        addLine('Your Vehicle', false, null, function () { $scope.routeLea(); }).item(descr);
+        carLine = addLine('Your Vehicle', false, null, function () { $scope.routeLea(); }).item(descr);
     };
 
     if (Data.order.hasLea()) {
-        var leaLine = addLine('Leather Seat', true, Data.order.lea.dispUrl, function () { $scope.routeLea(); }, delLea);
+        leaLine = addLine('Leather Seat', true, Data.order.lea.dispUrl, function () { $scope.routeLea(); }, delLea);
 
         leaLine.item(Data.order.lea.rowsDisp, Data.order.lea.price);
 
@@ -319,22 +320,21 @@ costco
 
         descr = objProp('Pattern: ', Data.order.lea.ptrn);
         leaLine.item(descr);
+    } else {
+        leaLine = null;
     };
 
     if (Data.order.hasHtrs()) {
-        var heatLine = addLine('Seat Heaters', true, null, function () { $scope.routeHtr(); }, delHea)
-            .item(Data.order.htrs.drv.disp, Data.order.htrs.drv.price);
+        htrLine = addLine('Seat Heaters', true, null, function () { $scope.routeHtr(); }, delHtr)
+            .item(Data.order.htrs.drv.disp, Data.order.htrs.price);
 
         if (Data.order.htrs.psg) {
-            heatLine.item(Data.order.htrs.psg.disp, Data.order.htrs.psg.price);
+            htrLine.item(Data.order.htrs.psg.disp);
         }
-        if (Data.order.htrs.disc) {
-            heatLine.item(Data.order.htrs.disc.disp, Data.order.htrs.disc.price * -1);
-        }
+    } else {
+        htrLine = null;
     };
-
-    //calcTotal();
-
+    
     $scope.prodPrice = function() {
         return Data.order.getTotal();
     };
@@ -350,24 +350,22 @@ costco
     };
 
     $scope.alerts = [];
-    var addAlert = function (quest, info, yes, hideFcn, addFcn) {
-        var alert = { quest: quest, info: info, yes: yes, hideFcn: hideFcn, addFcn: addFcn };
+    var addAlert = function (quest, info, yes, showFcn, addFcn) {
+        var alert = { quest: quest, info: info, yes: yes, showFcn: showFcn, addFcn: addFcn };
         $scope.alerts.push(alert);
     };
 
-    //if (!Data.order.hasLea()) {
     addAlert('Interested in adding Leather Seat Covers?',
         'Roadwire offers the finest leather interiors in the business. Take a look at our excellent offers!',
         'Shop for Leather Seat Covers',
-        $scope.hasLea,
+        function () { return !$scope.hasLea(); },
         $scope.routeLea
     );
 
-    //if (!Data.order.hasHtrs()) {
     addAlert('Interested in adding Seat Heaters?',
         'Roadwire offers the finest seat heating systems in the business. Take a look at our excellent offers!',
         'Shop for Seat Heaters',
-        $scope.hasHtrs,
+        function () { return $scope.hasLea() && !$scope.hasHtrs(); },
         $scope.routeHtr
     );
     
@@ -377,6 +375,28 @@ costco
     Data.member.phone = '216-493-3303';
 
     $scope.member = Data.member;
+
+    $scope.test = function () {
+        var prod = {
+            Code: "L1R",
+            Description: "One Row Leather Kitx",
+            Heaters: null,
+            ID: 1,
+            LeatherRows: 1,
+            PageUrl: "http://www.costco.com/.product.886853.html",
+            Price: 799,
+            changed: true
+        };
+
+        $http.post('/api/ccprods/', prod)
+            .then(function (result) {
+                var x = result;
+            }, function (reason) {
+                var y = reason;
+            });
+
+
+    }; //
 
 }])
 

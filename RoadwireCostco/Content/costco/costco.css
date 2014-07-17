@@ -209,11 +209,31 @@ body #costco-container #costco-view:after {
 body #costco-container #costco-view:after {
   clear: both;
 }
-body #costco-container #costco-view .light-bkg {
+body #costco-container #costco-view .car-bkg {
   background: url('/Content/Images/carbkgrnd.jpg') no-repeat left center;
 }
-body #costco-container #costco-view .dark-bkg {
+body #costco-container #costco-view .bkg1 {
   background: url('/Content/Images/costco-selector.jpg') no-repeat left center;
+  background-size: cover;
+}
+body #costco-container #costco-view .pref-bkg {
+  background: url('/Content/Images/camryLeather-11-1.png') no-repeat left center;
+  background-size: cover;
+}
+body #costco-container #costco-view .bkg3 {
+  background: url('/Content/Images/camryLeather-11-2.png') no-repeat left center;
+  background-size: cover;
+}
+body #costco-container #costco-view .bkg4 {
+  background: url('/Content/Images/prius-leather-1.jpg') no-repeat left center;
+  background-size: cover;
+}
+body #costco-container #costco-view .bkg5 {
+  background: url('/Content/Images/prius-leather-2.jpg') no-repeat left center;
+  background-size: cover;
+}
+body #costco-container #costco-view .bkg6 {
+  background: url('/Content/Images/venza-Leather-3.png') no-repeat left center;
   background-size: cover;
 }
 body #costco-container #costco-view #lea-body {
@@ -228,7 +248,7 @@ body #costco-container #costco-view #lea-body {
 body #costco-container #costco-view #lea-body .sel-sect {
   padding-left: 5px;
   padding-right: 5px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.75);
 }
 body #costco-container #costco-view #lea-body .sel-sect .sel-caption {
   margin-top: 0px;
@@ -237,7 +257,7 @@ body #costco-container #costco-view #lea-body .sel-sect .sel-caption {
   padding-top: 0px;
   padding-bottom: 0px;
   height: 22px;
-  color: #ffffff;
+  color: #8fadde;
   font-weight: bold;
 }
 body #costco-container #costco-view #lea-body .sel-opt-sect {
@@ -249,7 +269,7 @@ body #costco-container #costco-view #lea-body .sel-opt-sect {
   height: 65px;
   padding-left: 5px;
   padding-right: 5px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.75);
 }
 body #costco-container #costco-view #lea-body .sel-opt-sect .sel-caption {
   margin-top: 0px;
@@ -258,7 +278,7 @@ body #costco-container #costco-view #lea-body .sel-opt-sect .sel-caption {
   padding-top: 0px;
   padding-bottom: 0px;
   height: 22px;
-  color: #ffffff;
+  color: #8fadde;
   font-weight: bold;
 }
 body #costco-container #costco-view #lea-body .sel-opt-sect .sel-opt {
@@ -295,6 +315,7 @@ body #costco-container #costco-view #lea-body .sel-opt-sect .sel-opt .sel-slct {
   font-weight: bold;
   max-height: 31px;
   padding: 3px 12px;
+  color: #466598;
 }
 body #costco-container #costco-view #lea-body .sel-opt-sect .sel-opt .sel-slct:focus {
   border-color: #66afe9;
@@ -334,7 +355,7 @@ body #costco-container #costco-view #lea-body .sel-chc-sect {
   height: 414px;
   padding-left: 5px;
   padding-right: 5px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.75);
 }
 body #costco-container #costco-view #lea-body .sel-chc-sect .sel-caption {
   margin-top: 0px;
@@ -343,7 +364,7 @@ body #costco-container #costco-view #lea-body .sel-chc-sect .sel-caption {
   padding-top: 0px;
   padding-bottom: 0px;
   height: 22px;
-  color: #ffffff;
+  color: #8fadde;
   font-weight: bold;
 }
 body #costco-container #costco-view #lea-body .sel-chc-sect ul {

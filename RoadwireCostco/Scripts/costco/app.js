@@ -11,25 +11,25 @@ var costco = angular.module('costco', ['ngRoute', 'ngResource', 'routeStyles', '
             title: 'leather',
             templateUrl: '/Partial/Home/Leather',
             controller: "LeaCtrl",
-            resolve: { Data: function (WidgetData) { return WidgetData(); } }
+            resolve: { Data: function (DataDeferred) { return DataDeferred(); } }
         });
         $routeProvider.when('/heaters', {
             title: 'heaters',
             templateUrl: '/Partial/Home/Heaters',
             controller: "HtrCtrl",
-            resolve: { Data: function (WidgetData) { return WidgetData(); } }
+            resolve: { Data: function (DataDeferred) { return DataDeferred(); } }
         });
         $routeProvider.when('/install', {
             title: 'install',
             templateUrl: '/Partial/Home/Install',
             controller: "InstCtrl",
-            resolve: { Data: function (WidgetData) { return WidgetData(); } }
+            resolve: { Data: function (DataDeferred) { return DataDeferred(); } }
         });
         $routeProvider.when('/confirm', {
             title: 'confirm',
             templateUrl: '/Partial/Home/Confirm',
             controller: "ConfirmCtrl",
-            resolve: { Data: function (WidgetData) { return WidgetData();} }
+            resolve: { Data: function (DataDeferred) { return DataDeferred(); } }
         });
         $routeProvider.when('/map', {
             title: 'map',
@@ -45,16 +45,27 @@ var costco = angular.module('costco', ['ngRoute', 'ngResource', 'routeStyles', '
 
         $routeProvider.otherwise({ redirectTo: '/leather' });
     }])
+    .run(['$rootScope', '$location', 'WidgetData', function ($rootScope, $location, WidgetData) {
+
+        $rootScope.$on("$routeChangeStart", function (event, next, current) {
+            if ((next.$$route) && (next.$$route.originalPath == '/heaters')) {
+                var data = WidgetData();
+                if (!data.order.hasLea()) {
+                    $location.path("/leather");
+                };
+            };
+        });
+
+        $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+            if (current.$$route) {
+                document.title = current.$$route.title;
+            }
+        });
+
+    }])
+
 ;
 
-costco.run(['$location', '$rootScope', function ($location, $rootScope) {
-    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-        if (current.$$route) {
-            document.title = current.$$route.title;
-        }
-    });
-
-}])
-;
+//costco;
 
 

@@ -86,6 +86,7 @@ costco
 
     $scope.pickKit = function (idx) {
         $scope.kit.obj = $scope.kit.list[idx];
+        Data.order.loadSlctr();
         $scope.routeConfirm();
     };
 
@@ -134,18 +135,17 @@ costco
     
     var heaters = 2;
     var rows;
-    rows = Data.getRows();
-rows = 2;
+    rows = Data.order.getRows();
     $scope.rows = rows;
 
     $scope.price = Data.prodSrvc.getHtrDiff(rows, heaters);
     
     $scope.addHtrs = function () {
-        Data.heaters = heaters;
+        Data.order.loadHtrs(heaters);
         $scope.routeConfirm();
     };
     $scope.noHtrs = function () {
-        Data.heaters = 0;
+        Data.order.loadHtrs(heaters);
         $scope.routeConfirm();
     };
 
@@ -268,8 +268,7 @@ rows = 2;
     };
 
     //if (Data.selector.kitSelected()) {
-        Data.order.loadSlctr()
-        Data.order.loadHtrs();
+    //Data.order.loadProds();
     //} else {
     //    Data.order.car.make = { id: '1', name: 'CODA' };
     //    Data.order.car.year = { id: '2', name: '2012' };
@@ -285,8 +284,7 @@ rows = 2;
     //    Data.order.lea.dispUrl = 'https://system.sandbox.netsuite.com//core/media/media.nl?id=224&c=801095&h=b2c9a5bec52d11efe3b5';
     //    Data.order.lea.price = 1299;
 
-    //    Data.heaters = 2;
-    //    Data.order.loadHtrs();
+    //    Data.order.loadHtrs(2);
     //};
 
     var descr = '';
@@ -327,6 +325,7 @@ rows = 2;
     };
 
     calcTotal();
+    $scope.prodPrice = Data.order.getTotal();
     
     $scope.alerts = [];
     var addAlert = function (quest, info, yes, addFcn) {

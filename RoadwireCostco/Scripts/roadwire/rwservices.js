@@ -87,6 +87,17 @@ angular.module('roadwire.services', []) // 'ngResource'
     };
 }])
 
+.factory('ColorList', ['$http', function ($http) {
+    return function () {
+        return $http.get('/api/content/colors', { cache: true })
+            .then(function (result) {
+                return result.data;
+            }, function (reason) {
+                return reason;
+            });
+    };
+}])
+
 .factory('InstMarkers', ['$q', 'Installers', 'LoadGglMaps', function ($q, Installers, LoadGglMaps) {
 
     var makeMarkers = function (fcn, gglMps) {
@@ -432,7 +443,7 @@ angular.module('roadwire.services', []) // 'ngResource'
 
     return function () {
         var modalInstance = $modal.open({
-            templateUrl: '/Partial/Utils/WhyInstall',
+            templateUrl: '/Partial/Home/WhyInstall',
             controller: whyInstCtrl,
             windowClass: 'why-install'
         });

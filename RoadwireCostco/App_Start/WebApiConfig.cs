@@ -16,6 +16,12 @@ namespace RoadwireCostco
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
+                name: "ContentApi",
+                routeTemplate: "api/content/{action}/{id}",
+                defaults: new { controller = "Content", id = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }

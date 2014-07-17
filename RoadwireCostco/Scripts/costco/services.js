@@ -122,7 +122,7 @@ angular.module('costco.services', []) // 'ngResource'
     return makeSlctLevel;
 }])
 
-.factory('SelectorList', ['SlctLevel', 'NsUrl', function (SlctLevel, NsUrl) {
+.factory('SelectorList', ['SlctLevel', 'NsUrl', 'ColorList', function (SlctLevel, NsUrl, ColorList) {
 
     var defnParm = function (parm, name, prop) {
         return { parm: parm, name: name, prop: prop };
@@ -180,23 +180,35 @@ angular.module('costco.services', []) // 'ngResource'
                     }
                 };
 
-                return $.map(list, function (item) {
+                var kits = $.map(list, function (item) {
                     if ((item.isspecial === true) || (item.isclearance === true)) {
                         return null
                     };
                     item.partno = item.name;
+                    item.colorCd = item.leacolorname.substring(0, 3);
                     NsUrl('imgbase')
                         .then(function (url) {
-                            item.mainimgurl = imgUrl(url, item.storeimgurl);
-                            item.colorurl = imgUrl(url, item.swatchimgurl);
-                            item.displayUrl = item.colorurl;
+                            item.mainUrl = imgUrl(url, item.storeimgurl);
+                            item.colorUrl = imgUrl(url, item.swatchimgurl);
                         }, function (reason) {
-                            item.mainimgurl = imgUrl(false);
-                            item.colorurl = imgUrl(false);
-                            item.displayUrl = imgUrl(false);
+                            item.mainUrl = imgUrl(false);
+                            item.colorUrl = imgUrl(false);
                         });
                     return item;
                 });
+
+                ColorList().then(function (colors) {
+                    angular.forEach(kits, function (kit) {
+                        angular.forEach(colors, function (color) {
+                            if (kit.colorCd == color.Code) {
+                                kit.colorUrl = color.Url;
+                                return false;
+                            };
+                        });
+                    });
+                });
+
+                return kits;
             }
         });
 
@@ -249,19 +261,6 @@ angular.module('costco.services', []) // 'ngResource'
             data.selector = selector;
         };
 
-        data.getRows = function () {
-            if (data.selector && data.selector.ptrn && data.selector.ptrn.obj) {
-                return data.selector.ptrn.obj.rowsid || 0;
-            } else {
-                return 0;
-            }
-        };
-        
-
-        if (!data.heaters) {
-            data.heaters = 0;
-        };
-
         if (!data.member) {
             var member = {
                 email:'',
@@ -308,9 +307,10 @@ angular.module('costco.services', []) // 'ngResource'
 
                 lea.ptrn = car.ptrn;
                 lea.kit = car.kit;
+
                 lea.color = data.selector.kit.obj ? data.selector.kit.obj.leacolorname : null;
-                lea.dispUrl = data.selector.kit.obj ? data.selector.kit.obj.displayUrl : null;
-                lea.rows = data.selector.ptrn.obj ? data.selector.ptrn.obj.rowsid : null;
+                lea.dispUrl = data.selector.kit.obj ? data.selector.kit.obj.colorUrl : null;
+                lea.rows = lea.ptrn.obj ? lea.ptrn.obj.rowsid : 0;
                 lea.rowsDisp = prodSrvc.leaDisp(lea.rows);
                 lea.price = prodSrvc.leaPrice(lea.rows);
 
@@ -318,9 +318,24 @@ angular.module('costco.services', []) // 'ngResource'
                 order.lea = lea;
             };
 
-            order.loadHtrs = function () {
+            order.hasCar = function () {
+                return ((order.car) && (order.car.car) && (order.car.car.id));
+            };
+            order.hasLea = function () {
+                return ((order.lea) && (order.lea.kit) && (order.lea.kit.id));
+            };
+
+            order.getRows = function () {
+                if (order.hasLea()) {
+                    return order.lea.rows || 0;
+                } else {
+                    return 0;
+                }
+            };
+
+            order.loadHtrs = function (heaters) {
                 var htrs = {
-                    qty: data.heaters,
+                    qty: heaters,
                     drv: null,
                     psg: null,
                     disc: null
@@ -338,17 +353,25 @@ angular.module('costco.services', []) // 'ngResource'
                     };
                 };
 
+                htrs.price = prodSrvc.getHtrDiff(order.getRows(), htrs.qty);
+
                 order.htrs = htrs;
             };
 
-            order.hasCar = function () {
-                return ((order.car.car) && (order.car.car.id));
-            };
-            order.hasLea = function () {
-                return ((order.lea.kit) && (order.lea.kit.id));
-            };
             order.hasHtrs = function () {
-                return (order.htrs.qty);
+                return ((order.htrs) && (order.htrs.qty));
+            };
+
+            order.getHtrs = function () {
+                if (order.hasHtrs()) {
+                    return order.htrs.qty || 0;
+                } else {
+                    return 0;
+                };
+            };
+
+            order.getTotal = function () {
+                return prodSrvc.getPrice(order.getRows(), order.getHtrs());
             };
 
             order.hasProd = function () {
@@ -356,11 +379,6 @@ angular.module('costco.services', []) // 'ngResource'
             };
 
             data.order = order;
-        };
-
-        data.clearHtrs = function () {
-            data.heaters = 0;
-            data.order.clearHtrs();
         };
 
         data.confirmable = function () {
@@ -398,51 +416,35 @@ angular.module('costco.services', []) // 'ngResource'
             }
         }
     );
-
-}])
-
-.factory('ginch', ['ProdList', function (ProdList) {
-    var list;
-
-    var func = function (p) {
-        return p;
-    }
-
-    var prod = {
-        func: func,
-    };
-
-    return function () {
-        if (prod.list) {
-            return prod;
-        } else {
-            return ProdList.list().$promise
-                .then(function (prods) {
-                    prod.list = prods;
-                    return prod;
-                });
-        }
-    };
 }])
 
 .factory('ProductService', [function () {
     var prodList;
 
     var getProd = function (rows, htrs) {
+        rows = rows || 0;
+        htrs = htrs || 0;
         var result;
         angular.forEach(prodList, function (prod) {
-            if ((prod.LeatherRows == rows) && (prod.Heaters == htrs)) {
+            var prows = prod.LeatherRows || 0;
+            var phtrs = prod.Heaters || 0;
+            if ((prows == rows) && (phtrs == htrs)) {
                 result = prod;
                 return false;
             };
         });
         return result;
     };
+    
+    var getPrice = function (rows, htrs) {
+        var prod = getProd(rows, htrs);
+        return prod ? prod.Price : null;
+    };
 
     var getHtrDiff = function (rows, htrs) {
-        var justLea = getProd(rows);
-        var leaHtr = getProd(rows, htrs);
-        var diff = leaHtr.Price - justLea.Price;
+        var justLea = getPrice(rows) || 0;
+        var leaHtr = getPrice(rows, htrs) || 0;
+        var diff = leaHtr - justLea;
         return diff;
     };
 
@@ -458,16 +460,8 @@ angular.module('costco.services', []) // 'ngResource'
             return null;
         }
     };
-    var leaPrice = function (rowid) {
-        if (rowid == 1) {
-            return 799.00;
-        } else if (rowid == 2) {
-            return 1299.00;
-        } else if (rowid == 3) {
-            return 1799.00;
-        } else {
-            return null;
-        }
+    var leaPrice = function (rows) {
+        return getPrice(rows);
     };
 
     var htrDisp = function (seq) {
@@ -480,13 +474,7 @@ angular.module('costco.services', []) // 'ngResource'
         }
     };
     var htrPrice = function (qty) {
-        if (qty == 1) {
-            return 249.00;
-        } else if (qty == 2) {
-            return 449.00;
-        } else {
-            return null;
-        }
+        return getPrice(null, qty);
     };
     
     var htrDiscDisp = function (qty) {
@@ -508,6 +496,7 @@ angular.module('costco.services', []) // 'ngResource'
 
     var prod = {
         getProd: getProd,
+        getPrice: getPrice,
         getHtrDiff: getHtrDiff,
         leaDisp: leaDisp,
         leaPrice: leaPrice,

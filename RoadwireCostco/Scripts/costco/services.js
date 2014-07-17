@@ -270,7 +270,7 @@ angular.module('costco.services', []) // 'ngResource'
             };
 
             member.complete = function () {
-                return (member.email) && (member.lastname) && (member.postal) && (member.phone);
+                return (!!member.email) && (!!member.lastname) && (!!member.postal) && (!!member.phone);
             };
 
             data.member = member;
@@ -310,7 +310,7 @@ angular.module('costco.services', []) // 'ngResource'
 
                 lea.color = data.selector.kit.obj ? data.selector.kit.obj.leacolorname : null;
                 lea.dispUrl = data.selector.kit.obj ? data.selector.kit.obj.colorUrl : null;
-                lea.rows = lea.ptrn.obj ? lea.ptrn.obj.rowsid : 0;
+                lea.rows = data.selector.ptrn.obj ? parseInt(data.selector.ptrn.obj.rowsid) : 0;
                 lea.rowsDisp = prodSrvc.leaDisp(lea.rows);
                 lea.price = prodSrvc.leaPrice(lea.rows);
 
@@ -319,10 +319,10 @@ angular.module('costco.services', []) // 'ngResource'
             };
 
             order.hasCar = function () {
-                return ((order.car) && (order.car.car) && (order.car.car.id));
+                return ((!!order.car) && (!!order.car.car) && (!!order.car.car.id));
             };
             order.hasLea = function () {
-                return ((order.lea) && (order.lea.kit) && (order.lea.kit.id));
+                return ((!!order.lea) && (!!order.lea.kit) && (!!order.lea.kit.id));
             };
 
             order.getRows = function () {
@@ -345,21 +345,21 @@ angular.module('costco.services', []) // 'ngResource'
                     return { disp: disp, price: price };
                 };
 
+                htrs.price = prodSrvc.getHtrDiff(order.getRows(), htrs.qty);
+
                 if (htrs.qty > 0) {
                     htrs.drv = dispPrc(prodSrvc.htrDisp(1), prodSrvc.htrPrice(1));
+                    htrs.disc = dispPrc(prodSrvc.htrDiscDisp(2), prodSrvc.htrDisc(htrs.qty, htrs.price));
                     if (htrs.qty == 2) {
                         htrs.psg = dispPrc(prodSrvc.htrDisp(2), prodSrvc.htrPrice(1));
-                        htrs.disc = dispPrc(prodSrvc.htrDiscDisp(2), prodSrvc.htrDisc(2));
                     };
                 };
-
-                htrs.price = prodSrvc.getHtrDiff(order.getRows(), htrs.qty);
 
                 order.htrs = htrs;
             };
 
             order.hasHtrs = function () {
-                return ((order.htrs) && (order.htrs.qty));
+                return ((!!order.htrs) && (!!order.htrs.qty));
             };
 
             order.getHtrs = function () {
@@ -370,12 +370,20 @@ angular.module('costco.services', []) // 'ngResource'
                 };
             };
 
+            order.prodDescr = function () {
+                return prodSrvc.getDescr(order.getRows(), order.getHtrs());
+            };
+
+            order.prodUrl = function () {
+                return prodSrvc.getUrl(order.getRows(), order.getHtrs());
+            };
+
             order.getTotal = function () {
                 return prodSrvc.getPrice(order.getRows(), order.getHtrs());
             };
 
             order.hasProd = function () {
-                return (order.hasLea() || order.hasHtrs());
+                return ((!!order.hasLea()) || (!!order.hasHtrs()));
             };
 
             data.order = order;
@@ -435,12 +443,22 @@ angular.module('costco.services', []) // 'ngResource'
         });
         return result;
     };
-    
+   
+    var getDescr = function (rows, htrs) {
+        var prod = getProd(rows, htrs);
+        return prod ? prod.Description : null;
+    };
+
+    var getUrl = function (rows, htrs) {
+        var prod = getProd(rows, htrs);
+        return prod ? prod.PageUrl : null;
+    };
+
     var getPrice = function (rows, htrs) {
         var prod = getProd(rows, htrs);
         return prod ? prod.Price : null;
     };
-
+    
     var getHtrDiff = function (rows, htrs) {
         var justLea = getPrice(rows) || 0;
         var leaHtr = getPrice(rows, htrs) || 0;
@@ -484,19 +502,15 @@ angular.module('costco.services', []) // 'ngResource'
             return null;
         }
     };
-    var htrDisc = function (qty) {
-        if (qty == 1) {
-            return 0;
-        } else if (qty == 2) {
-            return (htrPrice(1) * 2) - htrPrice(2);
-        } else {
-            return null;
-        }
+    var htrDisc = function (qty, actual) {
+        return (htrPrice(1) * qty) - actual;
     };
 
     var prod = {
         getProd: getProd,
+        getDescr: getDescr,
         getPrice: getPrice,
+        getUrl: getUrl,
         getHtrDiff: getHtrDiff,
         leaDisp: leaDisp,
         leaPrice: leaPrice,

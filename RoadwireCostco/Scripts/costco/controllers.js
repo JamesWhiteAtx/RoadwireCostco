@@ -145,7 +145,8 @@ costco
         $scope.routeConfirm();
     };
     $scope.noHtrs = function () {
-        Data.order.loadHtrs(heaters);
+        Data.order.clearHtrs();
+        Data.order.loadHtrs(0);
         $scope.routeConfirm();
     };
 
@@ -222,20 +223,20 @@ costco
         return line;
     };
 
-    var calcTotal = function () {
-        $scope.total = 0;
-        angular.forEach($scope.lines, function (line) {
-            angular.forEach(line.items, function (item) {
-                if (angular.isNumber(item.total)) {
-                    $scope.total += item.total;
-                };
-            });
-        });
-    };
+    //var calcTotal = function () {
+    //    $scope.total = 0;
+    //    angular.forEach($scope.lines, function (line) {
+    //        angular.forEach(line.items, function (item) {
+    //            if (angular.isNumber(item.total)) {
+    //                $scope.total += item.total;
+    //            };
+    //        });
+    //    });
+    //};
 
     var delLine = function (idx) {
         $scope.lines.splice(idx, 1);
-        calcTotal();
+        //calcTotal();
     };
 
     var delLea = function (idx) {
@@ -243,8 +244,16 @@ costco
         delLine(idx);
     };
     var delHea = function (idx) {
-        Data.clearHtrs();
+        Data.order.clearHtrs();
         delLine(idx);
+    };
+
+    $scope.hasLea = function () {
+        return Data.order.hasLea();
+    };
+
+    $scope.hasHtrs = function () {
+        return Data.order.hasHtrs();
     };
 
     $scope.hasProd = function () {
@@ -255,7 +264,7 @@ costco
     };
 
     $scope.confirmable = function () {
-        return Data.confirmable();
+        return Data.confirmable() && (!!$scope.prodUrl());
     };
     
     var objProp = function (str, obj, nm) {
@@ -324,29 +333,50 @@ costco
         }
     };
 
-    calcTotal();
-    $scope.prodPrice = Data.order.getTotal();
-    
+    //calcTotal();
+
+    $scope.prodPrice = function() {
+        return Data.order.getTotal();
+    };
+    $scope.prodDescr = function() {
+        return Data.order.prodDescr();
+    };
+    $scope.prodUrl = function () {
+        return Data.order.prodUrl();
+    };
+
+    $scope.linkToCostCo = function () {
+        window.location  = $scope.prodUrl();
+    };
+
     $scope.alerts = [];
-    var addAlert = function (quest, info, yes, addFcn) {
-        var alert = { quest: quest, info: info, yes: yes, addFcn: addFcn };
+    var addAlert = function (quest, info, yes, hideFcn, addFcn) {
+        var alert = { quest: quest, info: info, yes: yes, hideFcn: hideFcn, addFcn: addFcn };
         $scope.alerts.push(alert);
     };
 
-    if (!Data.order.hasLea()) {
-        addAlert('Interested in adding Leather Seat Covers?', 'Roadwire offers the finest leather interiors in the business. Take a look at our excellent offers!', 'Shop for Leather Seat Covers', $scope.routeLea);
-    };
+    //if (!Data.order.hasLea()) {
+    addAlert('Interested in adding Leather Seat Covers?',
+        'Roadwire offers the finest leather interiors in the business. Take a look at our excellent offers!',
+        'Shop for Leather Seat Covers',
+        $scope.hasLea,
+        $scope.routeLea
+    );
 
-    if (!Data.order.hasHtrs()) {
-        addAlert('Interested in adding Seat Heaters?', 'Roadwire offers the finest seat heating systems in the business. Take a look at our excellent offers!', 'Shop for Seat Heaters', $scope.routeHtr);
-    };
+    //if (!Data.order.hasHtrs()) {
+    addAlert('Interested in adding Seat Heaters?',
+        'Roadwire offers the finest seat heating systems in the business. Take a look at our excellent offers!',
+        'Shop for Seat Heaters',
+        $scope.hasHtrs,
+        $scope.routeHtr
+    );
+    
+    Data.member.email = 'member@email.com';
+    Data.member.lastname = 'Smitty';
+    Data.member.postal = '44709';
+    Data.member.phone = '216-493-3303';
 
     $scope.member = Data.member;
-
-    var x;
-    $scope.test = function () {
-            x = prody.func(22);
-    };
 
 }])
 

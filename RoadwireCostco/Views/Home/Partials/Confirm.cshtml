@@ -33,17 +33,17 @@
             </div>
         </div>
 
-        <div class="order-line" ng-show="total">
+        <div class="order-line" ng-show="prodPrice()">
             <div class="header">
                 <div class="title">Total</div>
                 <div class="total">
-                    <span ng-if="total">price:{{prodPrice | currency}} total:{{total | currency}}</span>
+                    <span>{{prodPrice() | currency}}</span>
                 </div>
             </div>
         </div>
 
         <div class="alerts">
-            <div class="alert alert-info alert-dismissible" role="alert" ng-repeat="alert in alerts">
+            <div class="alert alert-info alert-dismissible" role="alert" ng-repeat="alert in alerts" ng-hide="alert.hideFcn()">
                 <button type="button" title="No Thanks" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4>{{alert.quest}}</h4>
                 <p>{{alert.info}}</p>
@@ -122,9 +122,11 @@
                 <span></span>
             </button>
         </div>
+        <div>
+            prod: {{prodDescr()}}  url: {{prodUrl()}}
+        </div>
+
 
     </form>
 
 </div>
-
-<button ng-click="test()">test</button>

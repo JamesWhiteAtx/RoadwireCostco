@@ -3,7 +3,7 @@
         height: 200px;
     }
 </style>
-<div id="lea-body" ng-class="bkgclass">
+<div id="lea-body">
 
     <div id="sel-car" class="sel-opt-sect sel-sect-fade">
         <h4 class="sel-caption">Find Your Vehicle</h4>
@@ -11,15 +11,6 @@
         <div sel-car-select sec-model="year"></div>
         <div sel-car-select sec-model="model"></div>
         <div sel-car-select sec-model="body" sec-plural="Bodies" sec-only-opts="true"></div>
-
-        @*<span style="color: #ddd;">{{bkgclass}}</span>
-        <span style="color: #ddd;" class=" glyphicon glyphicon-camera" ng-click="bkgclass = 'pref-bkg'"></span>
-        <span style="color: #ddd;" class="glyphicon glyphicon-camera" ng-click="bkgclass = 'car-bkg'"></span>
-        <span style="color: #ddd;" class=" glyphicon glyphicon-camera" ng-click="bkgclass = 'bkg1'"></span>
-        <span style="color: #ddd;" class=" glyphicon glyphicon-camera" ng-click="bkgclass = 'bkg3'"></span>
-        <span style="color: #ddd;" class=" glyphicon glyphicon-camera" ng-click="bkgclass = 'bkg4'"></span>
-        <span style="color: #ddd;" class=" glyphicon glyphicon-camera" ng-click="bkgclass = 'bkg5'"></span>
-        <span style="color: #ddd;" class=" glyphicon glyphicon-camera" ng-click="bkgclass = 'bkg6'"></span>*@
     </div>
 
     <div class="loading-large" ng-show="trimShowLoading()"></div>

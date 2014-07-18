@@ -224,7 +224,7 @@ angular.module('costco.services', []) // 'ngResource'
     };
 }])
 
-.factory('WidgetData', ['SelectorList', 'ProductService', 'CcOrders', function (SelectorList, ProductService, CcOrders) {
+.factory('WidgetData', ['$window', 'SelectorList', 'ProductService', 'CcOrders', function ($window, SelectorList, ProductService, CcOrders) {
     var data;
 
     return function () {
@@ -396,15 +396,13 @@ angular.module('costco.services', []) // 'ngResource'
                     Phone: data.member.phone
                 };
 
-                CcOrders.save(newOrder);
-
-                //$http.post('/api/orders/', newOrder)
-                //    .then(function (result) {
-                //        var x = result;
-                //    }, function (reason) {
-                //        var y = reason;
-                //    });
-
+                return CcOrders.save(newOrder)
+                    .$promise.then(function (result) {
+                        //$window.location = order.prodUrl();
+                        alert('navigate to:'+order.prodUrl());
+                    }, function (reason) {
+                        alert('Sorry - An unexpted error has occurred.');
+                    });
             };
 
             data.order = order;

@@ -96,8 +96,6 @@ costco
         };
     };
 
-    $scope.bkgclass = 'pref-bkg';
-
     function isUndefinedOrNull(val) {
         return (angular.isUndefined(val) || val == null);
     };
@@ -346,7 +344,7 @@ costco
     };
 
     $scope.linkToCostCo = function () {
-        window.location  = $scope.prodUrl();
+        Data.order.uploadSave();
     };
 
     $scope.alerts = [];
@@ -368,18 +366,13 @@ costco
         function () { return $scope.hasLea() && !$scope.hasHtrs(); },
         $scope.routeHtr
     );
-    
+
+    $scope.member = Data.member;
+
     Data.member.email = 'member@email.com';
     Data.member.lastname = 'Smitty';
     Data.member.postal = '44709';
     Data.member.phone = '216-493-3303';
-
-    $scope.member = Data.member;
-
-    $scope.test = function () {
-        Data.order.uploadSave();
-    }; //
-
 }])
 
 .controller('MapCtrl', ['$scope', 'gglMaps', function ($scope, gglMaps) {

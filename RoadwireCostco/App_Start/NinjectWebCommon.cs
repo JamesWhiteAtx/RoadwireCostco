@@ -64,6 +64,7 @@ namespace RoadwireCostco.App_Start
         {
             kernel.Bind<INetSuiteUriService>().To<NetSuiteUriService>();
             kernel.Bind<INetSuiteUriRestService>().To<NetSuiteUriRest>();
+            kernel.Bind<INetSuiteCcOrderUriService>().To<NetSuiteCcOrderUriService>();
 
             kernel.Bind<INetSuiteUriSelectorService>().To<NetSuiteUriScriptSelector>();
             kernel.Bind<INetSuiteConfigService>().ToMethod(

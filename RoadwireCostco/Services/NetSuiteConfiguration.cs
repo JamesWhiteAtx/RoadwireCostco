@@ -38,6 +38,8 @@ namespace RoadwireCostco
         string SelHVal { get; set; }
         string SelScriptVal { get; set; }
         string SelDeployVal { get; set; }
+        string CcOrderScriptVal { get; set; }
+        string CcOrderDeployVal { get; set; }
         string FileHVal { get; set; }
         string FileScriptVal { get; set; }
         string FileDeployVal { get; set; }
@@ -78,8 +80,11 @@ namespace RoadwireCostco
             _DebugCookieVal = new ConfigurationProperty("debugCookieVal", typeof(string), "<UNDEFINED>");
 
             _SelHVal = new ConfigurationProperty("selHVal", typeof(string), "<UNDEFINED>");
+
             _SelScriptVal = new ConfigurationProperty("selScriptVal", typeof(string), "<UNDEFINED>");
             _SelDeployVal = new ConfigurationProperty("selDeployVal", typeof(string), "<UNDEFINED>");
+            _CcOrderScriptVal = new ConfigurationProperty("ccOrderScriptVal", typeof(string), "<UNDEFINED>");
+            _CcOrderDeployVal = new ConfigurationProperty("ccOrderDeployVal", typeof(string), "<UNDEFINED>");
             _FileHVal = new ConfigurationProperty("fileHVal", typeof(string), "<UNDEFINED>");
             _FileScriptVal = new ConfigurationProperty("fileScriptVal", typeof(string), "<UNDEFINED>");
             _FileDeployVal = new ConfigurationProperty("fileDeployVal", typeof(string), "<UNDEFINED>");
@@ -102,6 +107,8 @@ namespace RoadwireCostco
             this.Properties.Add(_SelHVal);
             this.Properties.Add(_SelScriptVal);
             this.Properties.Add(_SelDeployVal);
+            this.Properties.Add(_CcOrderScriptVal);
+            this.Properties.Add(_CcOrderDeployVal);
             this.Properties.Add(_FileHVal);
             this.Properties.Add(_FileScriptVal);
             this.Properties.Add(_FileDeployVal);
@@ -161,12 +168,18 @@ namespace RoadwireCostco
 
         ConfigurationProperty _SelHVal;
         public string SelHVal { get { return (string)this[_SelHVal]; } set { this[_SelHVal] = value; } }
-
+        
         ConfigurationProperty _SelScriptVal;
         public string SelScriptVal { get { return (string)this[_SelScriptVal]; } set { this[_SelScriptVal] = value; } }
 
         ConfigurationProperty _SelDeployVal;
         public string SelDeployVal { get { return (string)this[_SelDeployVal]; } set { this[_SelDeployVal] = value; } }
+
+        ConfigurationProperty _CcOrderScriptVal;
+        public string CcOrderScriptVal { get { return (string)this[_CcOrderScriptVal]; } set { this[_CcOrderScriptVal] = value; } }
+
+        ConfigurationProperty _CcOrderDeployVal;
+        public string CcOrderDeployVal { get { return (string)this[_CcOrderDeployVal]; } set { this[_CcOrderDeployVal] = value; } }
 
         ConfigurationProperty _FileHVal;
         public string FileHVal { get { return (string)this[_FileHVal]; } set { this[_FileHVal] = value; } }

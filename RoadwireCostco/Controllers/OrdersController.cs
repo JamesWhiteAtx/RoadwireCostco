@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -34,8 +35,31 @@ namespace RoadwireCostco.Controllers
         
         public HttpResponseMessage Post(OrderModel order)
         {
-            _orderService.Insert(order);
-            return Request.CreateResponse(HttpStatusCode.OK, order);
+            string orderResonse = String.Empty;
+            try
+            {
+                orderResonse = _orderService.Insert(order);
+            }
+            catch (WebException wex)
+            {
+                if (wex.Response != null)
+                {
+                    using (var errorResponse = (HttpWebResponse)wex.Response)
+                    {
+                        using (var reader = new StreamReader(errorResponse.GetResponseStream()))
+                        {
+                            string error = reader.ReadToEnd();
+                            return Request.CreateResponse(errorResponse.StatusCode, error);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, e.Message);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, orderResonse);
         }
 
     }

@@ -399,6 +399,9 @@ angular.module('costco.services', []) // 'ngResource'
                 return CcOrders.save(newOrder)
                     .$promise.then(function (result) {
                         //$window.location = order.prodUrl();
+
+                        alert(result);
+
                         alert('navigate to:'+order.prodUrl());
                     }, function (reason) {
                         alert('Sorry - An unexpted error has occurred.');

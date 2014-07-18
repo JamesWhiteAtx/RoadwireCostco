@@ -74,6 +74,7 @@ namespace RoadwireCostco.App_Start
 
             kernel.Bind<IContentService>().To<ContentService>();
             kernel.Bind<ICcProductService>().To<CcProductService>();
+            kernel.Bind<ICcOrderService>().To<CcOrderService>();
 
         }        
     }

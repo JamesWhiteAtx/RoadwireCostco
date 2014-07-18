@@ -198,7 +198,7 @@ costco
     });
 }])
 
-.controller('ConfirmCtrl', ['$http', '$scope', 'Data', function ($http, $scope, Data) {
+.controller('ConfirmCtrl', ['$scope', 'Data', function ($scope, Data) {
     $scope.lines = [];
     var data = Data;
     var carLine;
@@ -377,25 +377,7 @@ costco
     $scope.member = Data.member;
 
     $scope.test = function () {
-        var prod = {
-            Code: "L1R",
-            Description: "One Row Leather Kitx",
-            Heaters: null,
-            ID: 1,
-            LeatherRows: 1,
-            PageUrl: "http://www.costco.com/.product.886853.html",
-            Price: 799,
-            changed: true
-        };
-
-        $http.post('/api/ccprods/', prod)
-            .then(function (result) {
-                var x = result;
-            }, function (reason) {
-                var y = reason;
-            });
-
-
+        Data.order.uploadSave();
     }; //
 
 }])

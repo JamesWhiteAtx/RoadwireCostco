@@ -224,7 +224,7 @@ angular.module('costco.services', []) // 'ngResource'
     };
 }])
 
-.factory('WidgetData', ['SelectorList', 'ProductService', function (SelectorList, ProductService) {
+.factory('WidgetData', ['SelectorList', 'ProductService', 'CcOrders', function (SelectorList, ProductService, CcOrders) {
     var data;
 
     return function () {
@@ -388,6 +388,25 @@ angular.module('costco.services', []) // 'ngResource'
                 return ((!!order.hasLea()) || (!!order.hasHtrs()));
             };
 
+            order.uploadSave = function () {
+                var newOrder = {
+                    Email: data.member.email,
+                    LastName: data.member.lastname,
+                    Postal: data.member.postal,
+                    Phone: data.member.phone
+                };
+
+                CcOrders.save(newOrder);
+
+                //$http.post('/api/orders/', newOrder)
+                //    .then(function (result) {
+                //        var x = result;
+                //    }, function (reason) {
+                //        var y = reason;
+                //    });
+
+            };
+
             data.order = order;
         };
 
@@ -528,6 +547,10 @@ angular.module('costco.services', []) // 'ngResource'
         prod.prodList = list;
         return prod;
     };
+}])
+
+.factory('CcOrders', ['$resource', function ($resource) {
+    return $resource('/api/orders/');
 }])
 
 ;

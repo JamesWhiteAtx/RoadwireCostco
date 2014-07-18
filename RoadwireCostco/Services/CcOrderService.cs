@@ -14,6 +14,13 @@ namespace RoadwireCostco
 
     public class CcOrderService : ICcOrderService
     {
+        private INetSuiteUriRestService _nsRestService;
+        
+        public CcOrderService(INetSuiteUriRestService nsRestService)
+        {
+            _nsRestService = nsRestService;
+        }
+
         //public IEnumerable<OrderModel> Listing() 
         //{
         //    return new List<OrderModel>()

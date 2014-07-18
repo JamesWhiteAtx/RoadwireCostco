@@ -63,6 +63,8 @@ namespace RoadwireCostco.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<INetSuiteUriService>().To<NetSuiteUriService>();
+            kernel.Bind<INetSuiteUriRestService>().To<NetSuiteUriRest>();
+
             kernel.Bind<INetSuiteUriSelectorService>().To<NetSuiteUriScriptSelector>();
             kernel.Bind<INetSuiteConfigService>().ToMethod(
                 m =>

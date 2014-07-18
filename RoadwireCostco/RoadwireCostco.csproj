@@ -293,6 +293,7 @@
     <Content Include="Content\site\site.less" />
     <Content Include="Content\installers.json" />
     <Content Include="Content\ccprods.json" />
+    <None Include="Properties\PublishProfiles\RoadwireCostco %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\RoadwireCostco.pubxml" />
     <Content Include="Scripts\angular\angular-1.2.16.js" />
     <Content Include="Scripts\angular\angular-1.2.16.min.js" />

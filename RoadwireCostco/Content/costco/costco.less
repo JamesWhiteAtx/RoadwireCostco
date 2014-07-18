@@ -125,34 +125,6 @@ body {
             @cc-lea-body-tot-ht: @cc-view-cnt-ht;
             @cc-lea-body-bord: @wire-frame-bord;
 
-            .car-bkg {
-                background: url('/Content/Images/carbkgrnd.jpg') no-repeat left center;
-            }
-            .bkg1 {
-                background: url('/Content/Images/costco-selector.jpg') no-repeat left center;
-                background-size: cover;
-            }
-            .pref-bkg {
-                background: url('/Content/Images/camryLeather-11-1.png') no-repeat left center;
-                background-size: cover;
-            }
-            .bkg3 {
-                background: url('/Content/Images/camryLeather-11-2.png') no-repeat left center;
-                background-size: cover;
-            }
-            .bkg4 {
-                background: url('/Content/Images/prius-leather-1.jpg') no-repeat left center;
-                background-size: cover;
-            }
-            .bkg5 {
-                background: url('/Content/Images/prius-leather-2.jpg') no-repeat left center;
-                background-size: cover;
-            }
-            .bkg6 {
-                background: url('/Content/Images/venza-Leather-3.png') no-repeat left center;
-                background-size: cover;
-            }
-
             #lea-body when (@cc-lea-body-bord > 0) {
                 border-style: solid;
                 border-color: #ffd800;
@@ -163,6 +135,8 @@ body {
                 @cc-lea-body-cnt-ht: @content-ht;
                 //cc-lea-body-cnt-ht: @cc-lea-body-cnt-ht;
                 width: auto;
+                background: url('/Content/Images/costco-sel-bkgrnd.jpg') no-repeat left center;
+                background-size: cover;
 
                 // Seletor Sections
 
@@ -174,7 +148,7 @@ body {
                     padding-left: 5px;
                     padding-right: 5px;
                     
-                    background: rgba(0,0,0,0.75);
+                    background: rgba(0,0,0,0.60);
 
                     .sel-caption {
                         .heighttot(@cc-sel-sect-cap-tot-ht, 0px, @cc-sel-sect-cap-marg-ht);
@@ -262,7 +236,7 @@ body {
                         //cc-chc-ul-cnt-ht: @cc-chc-ul-cnt-ht;
 
                         margin-left: 1px;
-                        background: rgba(0, 0, 0, 0.75);
+                        background: rgba(0, 0, 0, 0.25);
 
                         @cc-chc-li-tot-ht: @cc-chc-ul-cnt-ht - 25; // correct for scrollbar, ish
                         @cc-li-bord: @wire-frame-bord;

@@ -224,7 +224,9 @@ angular.module('costco.services', []) // 'ngResource'
     };
 }])
 
-.factory('WidgetData', ['$window', 'SelectorList', 'ProductService', 'CcOrders', function ($window, SelectorList, ProductService, CcOrders) {
+.factory('WidgetData', ['$window', 'SelectorList', 'ProductService', 'CcOrders', 'JsonModel',
+    function ($window, SelectorList, ProductService, CcOrders, JsonModel)
+{
     var data;
 
     return function () {
@@ -390,19 +392,20 @@ angular.module('costco.services', []) // 'ngResource'
 
             order.uploadSave = function () {
                 var newOrder = {
-                    Email: data.member.email,
-                    LastName: data.member.lastname,
-                    Postal: data.member.postal,
-                    Phone: data.member.phone
+                    email: data.member.email,
+                    lastName: data.member.lastname,
+                    postal: data.member.postal,
+                    phone: data.member.phone
                 };
 
-                return CcOrders.save(newOrder)
+                var model = JsonModel.toModel(newOrder);
+
+                return CcOrders.save(model)
                     .$promise.then(function (result) {
-                        //$window.location = order.prodUrl();
-
-                        alert(result);
-
-                        alert('navigate to:'+order.prodUrl());
+                        $window.location = order.prodUrl();
+                        //var model = JsonModel.fromModel(result);
+                        //alert('New id: '+model.id);
+                        //alert('navigate to:'+order.prodUrl());
                     }, function (reason) {
                         alert('Sorry - An unexpted error has occurred.');
                     });

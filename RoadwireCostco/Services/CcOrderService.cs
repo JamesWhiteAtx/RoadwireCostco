@@ -12,7 +12,7 @@ namespace RoadwireCostco
     { 
         //IEnumerable<OrderModel> Listing();
         //OrderModel Query(int id);
-        string Insert(OrderModel prod);
+        JsonModel Insert(JsonModel model);
     }
 
     public class CcOrderService : ICcOrderService
@@ -38,7 +38,7 @@ namespace RoadwireCostco
         //    return new OrderModel();
         //}
 
-        public string Insert(OrderModel order) 
+        public JsonModel Insert(JsonModel model) 
         {
             string responseFromServer = String.Empty;
 
@@ -50,8 +50,10 @@ namespace RoadwireCostco
 
             _nsUriService.LoadHeaders(request.Headers);
 
-            string parameters = JsonConvert.SerializeObject(order);
-            byte[] bytes = System.Text.Encoding.ASCII.GetBytes(parameters);
+            //string payload = JsonConvert.SerializeObject(model.Json);
+            string payload = model.Json;
+
+            byte[] bytes = System.Text.Encoding.ASCII.GetBytes(payload);
             request.ContentLength = bytes.Length;
             System.IO.Stream os = request.GetRequestStream();
             os.Write(bytes, 0, bytes.Length); //Push it out there
@@ -66,7 +68,7 @@ namespace RoadwireCostco
                 }
             }
 
-            return responseFromServer;
+            return new JsonModel { Json = responseFromServer};
         }
     }
 }

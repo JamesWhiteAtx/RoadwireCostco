@@ -344,7 +344,8 @@ costco
     };
 
     $scope.linkToCostCo = function () {
-        Data.order.uploadSave();
+        $scope.confirming = true;
+        Data.order.uploadSave().catch(function () { $scope.confirming = false; });
     };
 
     $scope.alerts = [];

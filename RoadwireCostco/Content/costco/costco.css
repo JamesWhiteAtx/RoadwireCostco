@@ -1040,6 +1040,14 @@ body #costco-container #costco-view #conf-body .member-info .confirm button span
 body #costco-container #costco-view #conf-body .member-info .confirm button span:before {
   content: "\e092";
 }
+body #costco-container #costco-view #conf-body .member-info .confirm .confirming {
+  margin-top: 10px;
+  color: #428bca;
+  font-weight: bold;
+}
+abody #costco-container #costco-view #conf-body .member-info .confirm .confirming:hover {
+  color: #3071a9;
+}
 body #costco-container #costco-view #heat-body {
   margin-top: 0;
   margin-bottom: 0;

@@ -449,4 +449,16 @@ angular.module('roadwire.services', []) // 'ngResource'
         });
     };
 }])
+
+.factory('JsonModel', [function () {
+    return {
+        toModel: function (obj) {
+            return { Json: angular.toJson(obj) };
+        },
+        fromModel: function (model) {
+            return angular.fromJson(model.Json);
+        }
+    }
+}])
+
 ;

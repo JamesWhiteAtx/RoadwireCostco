@@ -117,14 +117,17 @@
                     You are now ready to complete your purchase on Costco.com. Thank you.
                 </p>
             </div>
-            <button type="button" ng-disabled="!confirmable() || !memb.$valid" ng-click="linkToCostCo()">
+            <button type="submit"
+                    ng-disabled="!confirmable() || !memb.$valid || confirming"
+                    ng-click="linkToCostCo()">
                 Complete Order on Costco.com
                 <span></span>
             </button>
+            <div class="confirming loading-large" ng-if="confirming">Please wait one moment while we process your order</div>
         </div>
-        <div>
+        @*<div>
             prod: {{prodDescr()}}  url: {{prodUrl()}}
-        </div>
+        </div>*@
 
 
     </form>

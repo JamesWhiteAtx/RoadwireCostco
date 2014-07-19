@@ -32,13 +32,14 @@ namespace RoadwireCostco.Controllers
         //}
 
         // POST api/Order
-        
-        public HttpResponseMessage Post(OrderModel order)
+
+        public HttpResponseMessage Post(JsonModel model)
         {
-            string orderResonse = String.Empty;
+            //string orderResonse = String.Empty;
+            JsonModel responseModel = null;
             try
             {
-                orderResonse = _orderService.Insert(order);
+                responseModel = _orderService.Insert(model);
             }
             catch (WebException wex)
             {
@@ -59,7 +60,7 @@ namespace RoadwireCostco.Controllers
                 return Request.CreateResponse(HttpStatusCode.InternalServerError, e.Message);
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK, orderResonse);
+            return Request.CreateResponse(HttpStatusCode.OK, responseModel);
         }
 
     }

@@ -43,7 +43,7 @@
         </div>
 
         <div class="alerts">
-            <div class="alert alert-info alert-dismissible" role="alert" ng-repeat="alert in alerts" ng-show="alert.showFcn()">
+            <div class="alert alert-confirm alert-dismissible" ng-repeat="alert in alerts" ng-show="alert.showFcn()">
                 <button type="button" title="No Thanks" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4>{{alert.quest}}</h4>
                 <p>{{alert.info}}</p>

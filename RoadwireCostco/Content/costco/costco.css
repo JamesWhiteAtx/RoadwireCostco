@@ -743,6 +743,17 @@ body #costco-container #costco-view #conf-body .order-info .order-line .details 
 body #costco-container #costco-view #conf-body .order-info .alerts {
   margin-top: 20px;
 }
+body #costco-container #costco-view #conf-body .order-info .alerts .alert-confirm {
+  background-color: rgba(221, 221, 221, 0.22);
+  border-color: #808080;
+  color: rgba(0, 0, 0, 0.8);
+}
+body #costco-container #costco-view #conf-body .order-info .alerts .alert-confirm hr {
+  border-top-color: #737373;
+}
+body #costco-container #costco-view #conf-body .order-info .alerts .alert-confirm .alert-link {
+  color: rgba(0, 0, 0, 0.8);
+}
 body #costco-container #costco-view #conf-body .order-info .alerts .alert-link {
   display: inline-block;
   margin-bottom: 0;
@@ -761,9 +772,9 @@ body #costco-container #costco-view #conf-body .order-info .alerts .alert-link {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  color: #ffffff;
-  background-color: #428bca;
-  border-color: #357ebd;
+  color: #333333;
+  background-color: #ffffff;
+  border-color: #cccccc;
 }
 body #costco-container #costco-view #conf-body .order-info .alerts .alert-link:focus,
 body #costco-container #costco-view #conf-body .order-info .alerts .alert-link:active:focus,
@@ -799,9 +810,9 @@ body #costco-container #costco-view #conf-body .order-info .alerts .alert-link:f
 body #costco-container #costco-view #conf-body .order-info .alerts .alert-link:active,
 body #costco-container #costco-view #conf-body .order-info .alerts .alert-link.active,
 .open .dropdown-togglebody #costco-container #costco-view #conf-body .order-info .alerts .alert-link {
-  color: #ffffff;
-  background-color: #3276b1;
-  border-color: #285e8e;
+  color: #333333;
+  background-color: #ebebeb;
+  border-color: #adadad;
 }
 body #costco-container #costco-view #conf-body .order-info .alerts .alert-link:active,
 body #costco-container #costco-view #conf-body .order-info .alerts .alert-link.active,
@@ -823,12 +834,12 @@ fieldset[disabled] body #costco-container #costco-view #conf-body .order-info .a
 body #costco-container #costco-view #conf-body .order-info .alerts .alert-link.disabled.active,
 body #costco-container #costco-view #conf-body .order-info .alerts .alert-link[disabled].active,
 fieldset[disabled] body #costco-container #costco-view #conf-body .order-info .alerts .alert-link.active {
-  background-color: #428bca;
-  border-color: #357ebd;
+  background-color: #ffffff;
+  border-color: #cccccc;
 }
 body #costco-container #costco-view #conf-body .order-info .alerts .alert-link .badge {
-  color: #428bca;
-  background-color: #ffffff;
+  color: #ffffff;
+  background-color: #333333;
 }
 body #costco-container #costco-view #conf-body .order-info .alerts span.yes {
   position: relative;

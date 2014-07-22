@@ -311,12 +311,16 @@ angular.module('costco.services', []) // 'ngResource'
 
                 lea.ptrn = car.ptrn;
                 lea.kit = car.kit;
-
-                lea.color = data.selector.kit.obj ? data.selector.kit.obj.leacolorname : null;
                 lea.dispUrl = data.selector.kit.obj ? data.selector.kit.obj.colorUrl : null;
                 lea.rows = data.selector.ptrn.obj ? parseInt(data.selector.ptrn.obj.rowsid) : 0;
                 lea.rowsDisp = data.prodSrvc.leaDisp(lea.rows);
                 lea.price = data.prodSrvc.leaPrice(lea.rows);
+
+                lea.color = {
+                    id: data.selector.kit.obj ? data.selector.kit.obj.leacolor : null,
+                    code: data.selector.kit.obj ? data.selector.kit.obj.colorCd : null,
+                    name: data.selector.kit.obj ? data.selector.kit.obj.leacolorname : null
+                };
 
                 order.car = car;
                 order.lea = lea;
@@ -391,15 +395,57 @@ angular.module('costco.services', []) // 'ngResource'
             };
 
             order.uploadSave = function () {
+                var memb = data.member;
+                var ord = data.order;
+
                 var newOrder = {
-                    email: data.member.email,
-                    lastName: data.member.lastname,
-                    postal: data.member.postal,
-                    phone: data.member.phone
+                    email: memb.email,
+                    lastName: memb.lastname,
+                    postal: memb.postal,
+                    phone: memb.phone,
+                    car: ord.hasCar(),
+                    leather: ord.hasLea(),
+                    heaters: ord.hasHtrs(),
+                    total: ord.getTotal()
+                };
+
+                var idNm = function (src, prop, newProp) {
+                    newProp = newProp || prop;
+                    if (src[prop]) {
+                        newOrder[prop + 'id'] = src[prop].id;
+                        newOrder[prop + 'name'] = src[prop].name;
+                    };
+                };
+
+                if (newOrder.car) {
+                    idNm(ord.car, 'make');
+                    idNm(ord.car, 'year');
+                    idNm(ord.car, 'model');
+                    idNm(ord.car, 'body');
+                    idNm(ord.car, 'trim');
+                    idNm(ord.car, 'car');
+                    idNm(ord.car, 'int');
+                };
+
+                if (newOrder.leather) {
+                    angular.extend(newOrder, {
+                        leaprice: ord.lea.price,
+                        rows: ord.getRows(),
+                    });
+                    idNm(ord.lea, 'ptrn', 'pattern');
+                    idNm(ord.lea, 'color');
+                    idNm(ord.lea, 'kit');
+                };
+
+                if (newOrder.heaters) {
+                    angular.extend(newOrder, {
+                        heaterqty: ord.htrs.qty,
+                        heaterprice: ord.htrs.price
+                    });
                 };
 
                 var model = JsonModel.toModel(newOrder);
-
+                
                 return CcOrders.save(model)
                     .$promise.then(function (result) {
                         $window.location = order.prodUrl();
@@ -407,7 +453,17 @@ angular.module('costco.services', []) // 'ngResource'
                         //alert('New id: '+model.id);
                         //alert('navigate to:'+order.prodUrl());
                     }, function (reason) {
-                        alert('Sorry - An unexpted error has occurred.');
+                        var msg = '';
+                        if (reason && angular.isString(reason.data)) {
+
+                            var errData = angular.fromJson(angular.fromJson(reason.data));
+                            if (angular.isObject(errData) && angular.isObject(errData.error)) {
+                                msg = errData.error.code + ' ' + errData.error.message;
+                            }
+
+                        };
+
+                        alert('Sorry - An unexpted error has occurred: ' + msg);
                     });
             };
 

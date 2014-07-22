@@ -310,7 +310,7 @@ costco
 
         leaLine.item(Data.order.lea.rowsDisp, Data.order.lea.price);
 
-        descr = objProp('Color: ', Data.order.lea, 'color');
+        descr = objProp('Color: ', Data.order.lea.colr, 'name');
         leaLine.item(descr);
 
         descr = objProp('Part Number: ', Data.order.lea.kit);
@@ -354,7 +354,7 @@ costco
         $scope.alerts.push(alert);
     };
 
-    addAlert('Interested in adding Leather Seat Covers?',
+    addAlert('Interested in purchasing Leather Seat Covers?',
         'Roadwire offers the finest leather interiors in the business. Take a look at our excellent offers!',
         'Shop for Leather Seat Covers',
         function () { return !$scope.hasLea(); },
